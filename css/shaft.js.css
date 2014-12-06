@@ -1,56 +1,258 @@
 
 
-
-
-.ebook,.title,.index{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-
-
 html,
-body {
+body, .ebook {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
 body {
-    position: relative;
+    position: absolute;
     line-height: 1;                                /*设置行高*/
 }
 
 
-
-
-.ebook .title {
-
-    height: 200px;
-    width:  200px;
-    background: #222222;
+.ebook,.title,.index{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    overflow: hidden;
 }
 
 
-.ebook .title:hover{
+
+/*__________________________title______________________*/
+
+.ebook .title_out {
+
+
+    background: #222222;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+
+}
+
+
+.ebook .title_over{
 
     background: #626975;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+
 }
 
-#title_1 {
-    position: absolute;
+
+.ebook .title_now{
+    background:#626975;
+}
+
+
+/*_____________________________index________________________*/
+
+.ebook .index_out{
+
+
+    background: #C2C8D4;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+
+.ebook .index_over{
+
+
+    background: #8797B7;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+
+.ebook .index_now{
+    background: #7D7D7D;
+}
+
+
+
+/*_____________________________overview________________________*/
+#bookcover_overview,
+#title_overview,
+#index_overview{
+    position:absolute;
+    height:100%;
+    weight:100%;
+    left:0;
+    top:0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+/*__________________________________排版bookcover_____________________*/
+#bookcover_next{
+    position:absolute;
+    height: 30%;
+    width:  30%;
+    left: 35%;
+    top: 35%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+/*_____________________________排版title______________________________*/
+
+#title_1_next {
+    position:absolute;
+    height: 20%;
+    width:  20%;
     left:50%;
     top:50%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
 }
 
-#title_2 {
+#title_2_next {
     position:absolute;
-    left:20%;
-    top: 20%;
+    height: 20%;
+    width:  20%;
+    left:10%;
+    top: 10%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
 }
 
+
+
+
+
+/*_________________________排版index_________________________*/
+
+#t_1_index_1_next{
+    height: 20%;
+    width:  20%;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_1_index_2_next{
+    position: absolute;
+    height: 20%;
+    width:  20%;
+    left: 40%;
+    top: 40%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+
+#t_2_index_1_next{
+    position: absolute;
+    height: 20%;
+    width:  20%;
+    left: 40%;
+    top: 20%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_2_index_2_next{
+    position: absolute;
+    height: 20%;
+    width:  20%;
+    left: 40%;
+    top: 40%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
 
