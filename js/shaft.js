@@ -8,81 +8,15 @@ var dom={},//显示的面板
 
     z_indexE=-1,           //决定层次
 
-    navDirection=1,    //判定前进方向
+    navDirection=0,    //判定前进方向
 
     config= {
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions
-        title_width: 960,
-        title_height: 700,
+        //决定overview时的颜色，最好和mouseover时一样；
+      title_over_BG:"#626975",
 
-        index_width:777,
-        index_height:8888,
+      index_over_BG:"#8797B7"
+    };
 
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        // Bounds for smallest/largest possible scale to apply to content
-        minScale: 0.2,
-        maxScale: 1.0,
-
-        // Display controls in the bottom right corner
-        controls: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-
-        // Hides the address bar on mobile devices
-        hideAddressBar: true,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Focuses body when page changes visiblity to ensure keyboard shortcuts work
-        focusBodyOnPageVisiblityChange: true,
-
-        // Transition style
-        transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-        // Transition speed
-        transitionSpeed: 'default', // default/fast/slow
-
-        // Transition style for full page slide backgrounds
-        backgroundTransition: 'default', // default/linear/none
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Script dependencies to load
-        dependencies: []
-    },
-     // The current scale of the presentation (see width/height config)
-    scale = 1,
-
-    // A delay used to activate the overview mode
-    activateOverviewTimeout = 0,
-
-    // A delay used to deactivate the overview mode
-    deactivateOverviewTimeout = 0,
-
-    // Flags if the interaction event listeners are bound
-    eventsAreBound = false;
 
 
 
@@ -187,6 +121,8 @@ function addeventListens(){
 
 //布局
 function layout(){
+
+
     var domNow=document.querySelector(".now");
     var domNext=document.querySelectorAll(".next");
     var domPast=document.querySelectorAll(".past");
@@ -195,46 +131,51 @@ function layout(){
     //排now
     if(!!domNow.attributes.id)
     domNow.attributes.id.value=domNow.attributes.name.value+"_overview";
-    domNow.style.zIndex=z_indexE;
+
+    addmouseWhell();
 
     //排next
-    for(var i=0;i<domNext.length;i++){
+    for(var i = 0;i<domNext.length;i++){
         domNext[i].attributes.id.value=domNext[i].attributes.name.value+"_next";
-        domNext[i].style.zIndex="inherit";
         domNext[i].style.display="block";
     }
+
 
     //隐
     toArray(domNow.querySelectorAll(".next .box")).forEach(function(elf){
         if(!elf.classList.contains("title"))elf.style.display="none";
     });
 
-    //额外的,防止鼠标移开后变色
-    if(domNow.classList.contains("title")||domNow.classList.contains("index")){
-        domNow.classList.add(domNow.classList[0]+"_now");
-        domNow.classList.remove((domNow.classList[0]+"_over"));
-    }
-    if(domNow.classList.contains("bookcover")||domNow.classList.contains("title")){
-        for(var i=0;i<domNext.length;i++){
-            if(domNext[i].classList.contains(domNext[i].classList[0]+"_now")){
-                domNext[i].classList.add(domNext[i].classList[0]+"_over");
-                domNext[i].classList.remove(domNext[i].classList[0]+"_now");
-                break;
-            }
-        }
-    }
-
     //做效果
     if(navDirection>0){
         z_indexE++;
 
-    }else{
+        //额外的,防止鼠标移开后变色
+        if(domNow.classList.contains("title")){
+            domNow.setAttribute("style","background: "+config.title_over_BG);
+            domNow.classList.add("fixedBG_t");
+        }else if(domNow.classList.contains("index")){
+            domNow.setAttribute("style","background: "+config.index_over_BG);
+            domNow.classList.add("fixedBG_i");
+        }
+
+    }else if(navDirection<0){
         z_indexE--;
+
+        //消除防止鼠标移开后变色效果；
+      if(domNow.classList.contains("bookcover")){
+          domNow.querySelector(".fixedBG_t").removeAttribute("style");
+          domNow.querySelector(".fixedBG_t").classList.remove("fixedBG_t");
+      }else if(domNow.classList.contains("title")){
+          domNow.querySelector(".fixedBG_i").removeAttribute("style");
+          domNow.querySelector(".fixedBG_i").classList.remove("fixedBG_i");
+      }
+
     }
 
-
-    addmouseWhell();
+    //addmouseWhell();//addmouseWhell()放在下面就有问题，无法调用！不解
 }
+
 
 
 
@@ -246,11 +187,13 @@ function layout(){
 //前滚鼠标处理方式
 function upFocusPosition(){
 
-    removemouseWhell();
 
-    var upelf=domcument.querySelector(".tonext");
+
+    var upelf=document.querySelector(".tonext");
 
    if(!!upelf){
+
+       removemouseWhell();
 
        var nowpast=document.querySelectorAll(".past");
 
@@ -280,6 +223,7 @@ function upFocusPosition(){
        navDirection=1;
        layout();
 
+
    }else{
        return false;
    }
@@ -290,13 +234,17 @@ function upFocusPosition(){
 //后滚鼠标处理方式
 function downFocusPosition(){
 
-    removemouseWhell();
 
-    var downElf=domcument.querySelector(".now");
+
+    var downElf=document.querySelector(".now");
 
     if(!downElf.classList.contains("ebook")){
+
+        removemouseWhell();
  //先处理该层及下层元素
         var downElfPare=downElf.parentNode;
+
+
 
         toArray(downElf.querySelectorAll(".now > .box")).forEach(function(elf){
             elf.classList.remove("next");
@@ -304,7 +252,7 @@ function downFocusPosition(){
 
         //该类名仅仅用于选择该层所有box
         downElfPare.classList.add("tonow");
-        toArray(downElfPare.querySelectorALL(".tonow > .box")).forEach(function(elf){
+        toArray(downElfPare.querySelectorAll(".tonow > .box")).forEach(function(elf){
             elf.classList.add("next");
             if(!elf.classList.contains("now"))elf.classList.remove("past");
         });
@@ -338,6 +286,7 @@ function downFocusPosition(){
         //方向
         navDirection=-1;
         layout();
+
 
     }else{
         return false;

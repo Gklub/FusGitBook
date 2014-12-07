@@ -65,9 +65,7 @@ body {
 }
 
 
-.ebook .title_now{
-    background:#626975;
-}
+
 
 
 /*_____________________________index________________________*/
@@ -106,7 +104,16 @@ body {
 
 
 .ebook .index_now{
-    background: #7D7D7D;
+    background: #8797B7;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
 }
 
 
@@ -114,10 +121,11 @@ body {
 /*_____________________________overview________________________*/
 #bookcover_overview,
 #title_overview,
-#index_overview{
+#index_overview
+{
     position:absolute;
     height:100%;
-    weight:100%;
+    width:100%;
     left:0;
     top:0;
     transition-property: all;
@@ -130,6 +138,9 @@ body {
     -o-transition-duration: 0.4s;
 
 }
+
+
+
 /*__________________________________排版bookcover_____________________*/
 #bookcover_next{
     position:absolute;
