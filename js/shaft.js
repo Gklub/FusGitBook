@@ -6,7 +6,7 @@ var dom={},//显示的面板
 
     lastMouseWheelStep=0,   //滚轮
 
-    z_indexE=-1,           //决定层次
+    z_indexE=5,           //决定层次
 
     navDirection=0,    //判定前进方向
 
@@ -15,6 +15,8 @@ var dom={},//显示的面板
       title_over_BG:"#626975",
 
       index_over_BG:"#8797B7"
+
+
     };
 
 
@@ -66,21 +68,17 @@ function stepu(){
 
 
     //写上id和name
-    dom.cover_wrapper.setAttribute("id","bookcover_next");
-    dom.cover_wrapper.setAttribute("name","bookcover");
+    dom.cover_wrapper.setAttribute("id","bookcover");
 
     for(var i=0;i<dom.title_wrapper.length;i++){
-        dom.title_wrapper[i].setAttribute("id","title_"+(i+1)+"_next");
-        dom.title_wrapper[i].setAttribute("name","title_"+(i+1));
+        dom.title_wrapper[i].setAttribute("id","title_"+(i+1));
 
         var title_index=dom.title_wrapper[i].querySelectorAll(".index");
 
         for(var j=0;j<title_index.length;j++){
-            title_index[j].setAttribute("id","t_"+(i+1)+"_index_"+(j+1)+"_next");
-            title_index[j].setAttribute("name","t_"+(i+1)+"_index_"+(j+1));
+            title_index[j].setAttribute("id","t_"+(i+1)+"_index_"+(j+1));
         }
     }
-
 
     //这行要放到layoutforcover中
     toArray(dom.name).forEach(function(elf){
@@ -123,23 +121,14 @@ function addeventListens(){
 function layout(){
 
 
-    var domNow=document.querySelector(".now");
-    var domNext=document.querySelectorAll(".next");
-    var domPast=document.querySelectorAll(".past");
+    var domNow=document.querySelector(".now"),
+        domNext=document.querySelectorAll(".next"),
+        domPast=document.querySelectorAll(".past");
 
-
-    //排now
-    if(!!domNow.attributes.id)
-    domNow.attributes.id.value=domNow.attributes.name.value+"_overview";
-
-    addmouseWhell();
-
-    //排next
-    for(var i = 0;i<domNext.length;i++){
-        domNext[i].attributes.id.value=domNext[i].attributes.name.value+"_next";
-        domNext[i].style.display="block";
-    }
-
+    //显
+    toArray(domNext).forEach(function(elf){
+       elf.style.display="block";
+    });
 
     //隐
     toArray(domNow.querySelectorAll(".next .box")).forEach(function(elf){
@@ -148,32 +137,58 @@ function layout(){
 
     //做效果
     if(navDirection>0){
-        z_indexE++;
+        z_indexE+=5;
+
+
+        var domHeight,
+            domWidth,
+            domNowHeight=domNow.offsetHeight,
+            domNowWidth=domNow.offsetWidth,
+            scaleh, scalew;
+
+        if(!!domPast){
+            for(var i=0;i<domPast.length;i++){
+                if(!!domPast[i].querySelector(".now")){
+                    domHeight=domPast[i].offsetHeight;
+                    domWidth=domPast[i].offsetWidth;
+                }
+            }
+        }else{
+            domHeight=dom.cover_wrapper.offsetHeight;
+            domWidth=dom.cover_wrapper.offsetWidth;
+        }
+
+        //该部分计算缩放比例
+        scaleh = domHeight/domNowHeight;
+        scalew = domWidth/domNowWidth;
+
+        domNow.setAttribute("style","z-index: "+z_indexE);
+
+        transformElement(domNow,"scale("+scalew+","+scaleh+")");
+
+
+        domNow.classList.add("overview");
 
         //额外的,防止鼠标移开后变色
         if(domNow.classList.contains("title")){
             domNow.setAttribute("style","background: "+config.title_over_BG);
-            domNow.classList.add("fixedBG_t");
         }else if(domNow.classList.contains("index")){
             domNow.setAttribute("style","background: "+config.index_over_BG);
-            domNow.classList.add("fixedBG_i");
         }
 
     }else if(navDirection<0){
-        z_indexE--;
+        z_indexE-=5;
 
-        //消除防止鼠标移开后变色效果；
-      if(domNow.classList.contains("bookcover")){
-          domNow.querySelector(".fixedBG_t").removeAttribute("style");
-          domNow.querySelector(".fixedBG_t").classList.remove("fixedBG_t");
-      }else if(domNow.classList.contains("title")){
-          domNow.querySelector(".fixedBG_i").removeAttribute("style");
-          domNow.querySelector(".fixedBG_i").classList.remove("fixedBG_i");
-      }
-
+        for(var i=0;i<domNext.length;i++){
+            if(domNext[i].classList.contains("overview")){
+                transformElement(domNext[i],"scale(1,1)");
+                domNext[i].removeAttribute("style");
+                domNext[i].classList.remove("overview");
+            }
+        }
     }
 
-    //addmouseWhell();//addmouseWhell()放在下面就有问题，无法调用！不解
+    addmouseWhell();
 }
 
 
@@ -322,18 +337,14 @@ function elfmouseover(overelf){
 
 //mouseout的处理方式
 function elfmouseout(outelf){
-
-    if(!document.querySelector(".now").classList.contains("ebook")) {
-
+    
         var outEC = outelf.classList;
 
         outEC.add(outEC[0] + "_out");
         outEC.remove(outEC[0] + "_over");
 
         if (outEC.contains("tonext"))outEC.remove("tonext");
-    }else{
-        return false;
-    }
+
 }
 
 
