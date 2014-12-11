@@ -31,15 +31,16 @@ function start(){
 
     setup();
 
-    addeventListens();
-
     //布局
     layout();
+
+    addeventListens();
 
     //更新页面
     updateView();
     //更新字体
     updateFont();
+
 
 }
 
@@ -81,8 +82,8 @@ function setup(){
     });
 
 
-    //写上id
-    view.cover_wrapper.setAttribute("id","bookcover");
+    //写上id，cover不加过度，以防开场时的小动作
+    view.cover_wrapper.setAttribute("id","bookcoverStart");
 
     for(var i=0;i<view.title_wrapper.length;i++){
         view.title_wrapper[i].setAttribute("id","title_"+(i+1));
@@ -161,7 +162,12 @@ function layout(){
     if(navDirection>0){
         z_indexE+=5;
 
+        //为cover添上过度效果
+        if(view.cover_wrapper.attributes.id.value=="bookcoverStart")
+        view.cover_wrapper.attributes.id.value="bookcover";
 
+
+        //固定title和index的background
         if(viewNow.classList.contains("title")){
             viewNow.style.background=config.title_over_BG;
         }else if(viewNow.classList.contains("index")){

@@ -200,6 +200,15 @@ body{
     -o-transition-duration: 0.4s;
 }
 
+
+#bookcoverStart{
+    position:absolute;
+    height: 30%;
+    width:  30%;
+    left: 35%;
+    top: 35%;
+}
+
 /*_____________________________排版title______________________________*/
 
 #title_1 {
