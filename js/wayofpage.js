@@ -31,15 +31,16 @@ function start(){
 
     setup();
 
+    //测量窗口大小
+    analysisView();
+
     //布局
     layout();
 
     addeventListens();
 
-    //更新页面
-    updateView();
-    //更新字体
-    updateFont();
+    //启用更新
+    update();
 
 
 }
@@ -54,7 +55,14 @@ function setup(){
     view.index_wrapper = document.querySelectorAll('.index');
     view.cover_wrapper = document.querySelector('.bookcover');
     view.passage_wrapper = document.querySelectorAll('.passage');
-    view.name=document.querySelectorAll("p");
+    view.name=[];
+    view.introduction=[];
+
+    var p=view.ebook_wrapper.querySelectorAll("p");
+    toArray(p).forEach(function(elf){
+        if(elf.classList.contains("introduction")) view.introduction.push(elf);
+        else view.name.push(elf);
+    });
 
     view.ebook_wrapper.classList.add("now");
     //overview为全屏的所有box
@@ -143,17 +151,23 @@ function layout(){
     var viewNext=document.querySelectorAll(".next"),
         viewPast=document.querySelector(".past");
 
-    //显
+    //控制box的显隐性
     toArray(viewNext).forEach(function(elf){
         elf.style.display="block";
     });
-
-
-
-    //隐
-    //太过下层的元素
     toArray(viewNow.querySelectorAll(".next .box")).forEach(function(elf){
         if(!elf.classList.contains("title"))elf.style.display="none";
+    });
+
+
+    //控制name和introduction的显隐
+    toArray(view.name).forEach(function(elf){
+        if(elf.parentNode.classList.contains("next")) elf.style.display="block";
+        else elf.style.display="none";
+    });
+    toArray(view.introduction).forEach(function(elf){
+        if(elf.parentNode.classList.contains("now")) elf.style.display="block";
+        else elf.style.display="none";
     });
 
 
@@ -206,22 +220,33 @@ function layout(){
 
 
 
+
+//更新界面和文字
+function update(){
+    if(navDirection==0){
+        if(config.bodyHeight!=document.body.offsetHeight||config.bodyWidth!=document.body.offsetWidth)
+        updateView();
+
+        updateFont();
+    }
+
+    setTimeout(update,10);
+}
+
+
+
 //防止窗口改变时出现bug
 function updateView(){
-    if(navDirection==0) {
-        var viewBox=document.querySelectorAll(".overview");
+    var viewBox=document.querySelectorAll(".overview");
 
         //得到页面大小
-        analysisView();
+    analysisView();
 
      for(var i=0;i<viewBox.length;i++){
          viewBox[i].style.height=config.bodyHeight+"px";
          viewBox[i].style.width=config.bodyWidth+"px";
      }
 
-    }
-
-    setTimeout(updateView,100);
 }
 
 
@@ -235,14 +260,12 @@ function updateFont(){
     var toFontTop=(config.nextHeight-toFontSize)/2;
 
     toArray(view.name).forEach(function(elf){
-        if(elf.parentNode.classList.contains("next")){
-            elf.style.fontSize=toFontSize+"px";
-           elf.style.top=-toFontTop+"px";
-            elf.style.display="block";
-        } else elf.style.display="none";
+        if(elf.parentNode.classList.contains("next")) {
+            elf.style.fontSize = toFontSize + "px";
+            elf.style.top = -toFontTop + "px";
+        }
     });
 
-    setTimeout(updateFont,80);
 }
 
 
