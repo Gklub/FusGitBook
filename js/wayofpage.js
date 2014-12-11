@@ -31,9 +31,6 @@ function start(){
 
     setup();
 
-    //测量浏览器的可见区大小
-    analysis();
-
     addeventListens();
 
     //布局
@@ -41,8 +38,8 @@ function start(){
 
     //更新页面
     updateView();
-
-
+    //更新字体
+    updateFont();
 
 }
 
@@ -59,6 +56,8 @@ function setup(){
     view.name=document.querySelectorAll("p");
 
     view.ebook_wrapper.classList.add("now");
+    //overview为全屏的所有box
+    view.ebook_wrapper.classList.add("overview");
     view.cover_wrapper.classList.add("next");
     view.cover_wrapper.classList.add("tonext");
 
@@ -99,11 +98,16 @@ function setup(){
 }
 
 
-function analysis(){
+function analysisView(){
     config.bodyHeight=document.body.offsetHeight;
     config.bodyWidth=document.body.offsetWidth;
+}
 
 
+function analysisFont(){
+    //为字体的合适程度做准备
+    config.nextHeight=document.querySelector(".next").offsetHeight;
+    config.nextWidth=document.querySelector(".next").offsetWidth;
 }
 
 
@@ -152,13 +156,6 @@ function layout(){
     });
 
 
-    //隐去name
-    toArray(view.name).forEach(function(elf){
-        if(elf.parentNode.classList.contains("next"))
-        elf.style.display="block";
-        else elf.style.display="none";
-    });
-
 
     //做效果
     if(navDirection>0){
@@ -206,22 +203,41 @@ function layout(){
 //防止窗口改变时出现bug
 function updateView(){
     if(navDirection==0) {
-        var viewNow=document.querySelector(".now");
+        var viewBox=document.querySelectorAll(".overview");
 
         //得到页面大小
-        analysis();
+        analysisView();
 
-        viewNow.style.height=config.bodyHeight;
-        viewNow.style.width=config.bodyWidth;
+     for(var i=0;i<viewBox.length;i++){
+         viewBox[i].style.height=config.bodyHeight+"px";
+         viewBox[i].style.width=config.bodyWidth+"px";
+     }
+
     }
 
-    setTimeout(updateView,1000);
+    setTimeout(updateView,100);
 }
 
 
 
 
+function updateFont(){
+    //得到next的大小
+    analysisFont();
+    //调整适合的字体大小
+    var toFontSize=Math.min(config.nextHeight,config.nextWidth)/2;
+    var toFontTop=(config.nextHeight-toFontSize)/2;
 
+    toArray(view.name).forEach(function(elf){
+        if(elf.parentNode.classList.contains("next")){
+            elf.style.fontSize=toFontSize+"px";
+           elf.style.top=-toFontTop+"px";
+            elf.style.display="block";
+        } else elf.style.display="none";
+    });
+
+    setTimeout(updateFont,80);
+}
 
 
 
@@ -333,6 +349,7 @@ function elfmouseover(overelf){
         var overEC=overelf.classList;
         var overP=overelf.querySelector(".next > p");
 
+
         //背景换装
         overEC.add(overEC[0]+"_over");
         overEC.remove(overEC[0]+"_out");
@@ -359,7 +376,7 @@ function elfmouseout(outelf){
 
 
     outelf.classList.add("sort");
-    outP=outelf.querySelector(".secrt > p");
+    outP=outelf.querySelector(".sort > p");
     outelf.classList.remove("sort");
 
     outEC.add(outEC[0] + "_out");

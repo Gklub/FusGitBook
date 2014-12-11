@@ -119,40 +119,64 @@ body{
 /*_____________________________p中name________________________*/
 
 .title_name {
-    font-size: 5em;
+
     position: absolute;
     color:#FFFFFF;
-    top:-15%;
-    left:30%
+    transition-property: all;
+    transition-duration: 0.3s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.3s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.3s;
 
 }
 
 
 .title_over_name {
-    font-size: 5em;
+
     position: absolute;
     color:#000000;
-    top:-15%;
-    left:30%
+    transition-property: all;
+    transition-duration: 0.3s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.3s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.3s;
 
 }
 
 .index_name {
-    font-size: 5em;
+
     position: absolute;
     color:#555555;
-    top:-15%;
-    left:30%
+    transition-property: all;
+    transition-duration: 0.3s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.3s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.3s;
 
 
 }
 
 .index_over_name {
-    font-size: 5em;
+
     position: absolute;
     color:#000000;
-    top:-15%;
-    left:30%
+    transition-property: all;
+    transition-duration: 0.3s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.3s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.3s;
 
 
 }
