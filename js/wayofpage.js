@@ -111,7 +111,8 @@ function setup(){
 
     //写上id，cover不加过度，以防开场时的小动作
     view.cover_wrapper.setAttribute("id","bookcoverStart");
-    view.cover_wrapper.style.background=config.bookcoverBG;
+    bookcoverChange(view.cover_wrapper,config.bookcoverBG);
+
 
     for(var i=0;i<view.title_wrapper.length;i++){
         view.title_wrapper[i].setAttribute("id","title_"+(i+1));
@@ -147,6 +148,15 @@ function analysisFont(){
         }
     }
 
+}
+
+
+
+function bookcoverChange(elf,piece){
+    elf.style.background=piece;
+    elf.style.backgroundSize="100% 100%";
+    elf.style.backgroundRepeat="no-repeat";
+    elf.style.backgroundPosition="center";
 }
 
 
@@ -239,9 +249,9 @@ function layout(){
 
                 viewNext[i].removeAttribute("style");
 
-                if(viewNext[i].classList.contains("bookcover")) viewNext[i].style.background=config.bookcoverBG;
-                else if(viewNext[i].classList.contains("title")) viewNext[i].style.background=config.title_BG;
-                else viewNext[i].style.background=config.index_BG;
+                if(viewNext[i].classList.contains("bookcover"))     bookcoverChange(viewNext[i],config.bookcoverBG);
+                else if(viewNext[i].classList.contains("title")) bookcoverChange(viewNext[i],config.title_BG);
+                else bookcoverChange(viewNext[i],config.index_BG);
 
 
                 viewNext[i].classList.remove("overview");
@@ -428,8 +438,8 @@ function elfmouseover(overelf){
 
 
         //背景换装
-        if(overEC.contains("title")) overelf.style.background=config.title_over_BG;
-        else overelf.style.background=config.index_over_BG;
+        if(overEC.contains("title")) bookcoverChange(overelf,config.title_over_BG);
+        else bookcoverChange(overelf,config.index_over_BG);
 
 
         //只有处于next层的元素才能tonext
@@ -437,13 +447,15 @@ function elfmouseover(overelf){
 
         if(overEC.contains("title")&&!overEC.contains("overview")){
 
+            //字体颜色变换
             overP.style.color=config.title_over_name;
 
             for(var i=0;i<view.title_wrapper.length;i++){
                 if(!view.title_wrapper[i].classList.contains("tonext")) view.title_wrapper[i].style.display="none";
             }
 
-            view.cover_wrapper.style.background=config.bookcover_overBG;
+            //背景颜色变换
+            bookcoverChange(view.cover_wrapper,config.bookcover_overBG);
         }else if(overEC.contains("index")) overP.style.color=config.index_over_name;
 
 
@@ -454,7 +466,7 @@ function elfmouseover(overelf){
 }
 
 
-//mouseout的处理方式
+//mouseout的处理方式与之上的相反
 function elfmouseout(outelf){
 
 
@@ -467,8 +479,8 @@ function elfmouseout(outelf){
         outP=outelf.querySelector(".sort > p");
         outelf.classList.remove("sort");
 
-        if(outEC.contains("title")) outelf.style.background=config.title_BG;
-        else outelf.style.background=config.index_BG;
+        if(outEC.contains("title")) bookcoverChange(outelf,config.title_BG);
+        else bookcoverChange(outelf,config.index_BG)
 
 
         if(outEC.contains("title")&&!outEC.contains("overview")){
@@ -478,7 +490,7 @@ function elfmouseout(outelf){
             for(var i=0;i<view.title_wrapper.length;i++)
                 view.title_wrapper[i].style.display="block";
 
-            view.cover_wrapper.style.background=config.bookcoverBG;
+            bookcoverChange(view.cover_wrapper,config.bookcoverBG);
         }else outP.style.color=config.index_name;
 
         if (outEC.contains("tonext"))outEC.remove("tonext");

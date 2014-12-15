@@ -114,11 +114,12 @@ body {
 
 #bookcoverStart{
     position:absolute;
-    background-size:30% 30% ;
+
     height: 30%;
     width:  30%;
     left: 35%;
     top: 35%;
+
 }
 
 /*_____________________________排版title______________________________*/
