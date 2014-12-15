@@ -13,18 +13,25 @@ var view={},//显示的面板
 
     config= {
         //决定overview时的颜色，最好和mouseover时一样；
-        title_over_BG:"#626975",
+        title_over_BG:"#6b6b6b",
 
-        index_over_BG:"#8797B7",
+        index_over_BG:"#C2C8D4",
 
         title_BG:"#000000",
 
-        index_BG:"#C2C8D4",
+        index_BG:"#4b4b4b",
 
         bookcoverBG:"url('img/bookcover-out.png')",
 
-        bookcover_overBG:"url('img/bookcover-over.png')"
+        bookcover_overBG:"url('img/bookcover-over.png')",
 
+        title_name: '#FFFFFF',
+
+        title_over_name:'#000000',
+
+        index_name: '#000000',
+
+        index_over_name:'#555555'
 
     };
 
@@ -96,6 +103,11 @@ function setup(){
         elf.classList.add("box");
     });
 
+    toArray(view.name).forEach(function(elf){
+        if(elf.classList.contains("title_name")) elf.style.color=config.title_name;
+        else elf.style.color=config.index_name;
+    });
+
 
     //写上id，cover不加过度，以防开场时的小动作
     view.cover_wrapper.setAttribute("id","bookcoverStart");
@@ -115,9 +127,10 @@ function setup(){
 }
 
 
-function analysisView(){
-    config.bodyHeight=document.body.offsetHeight;
-    config.bodyWidth=document.body.offsetWidth;
+function analysisView() {
+    config.bodyHeight = document.body.offsetHeight;
+    config.bodyWidth = document.body.offsetWidth;
+
 }
 
 
@@ -133,7 +146,6 @@ function analysisFont(){
             break;
         }
     }
-
 
 }
 
@@ -195,18 +207,15 @@ function layout(){
     if(navDirection>0){
         z_indexE+=5;
 
+
         //为cover添上过度效果
         if(view.cover_wrapper.attributes.id.value=="bookcoverStart")
         view.cover_wrapper.attributes.id.value="bookcover";
 
 
         //固定title和index的background
-        if(viewNow.classList.contains("title")){
-            viewNow.style.background=config.title_over_BG;
-        }else if(viewNow.classList.contains("index")){
-            viewNow.style.background=config.index_over_BG;
+        if(viewNow.classList.contains("title")||viewNow.classList.contains("index"))
 
-        }
 
         viewNow.style.zIndex=z_indexE;
         //调整位置
@@ -216,6 +225,8 @@ function layout(){
 
         viewNow.style.height=config.bodyHeight+"px";
         viewNow.style.width=config.bodyWidth+"px";
+
+        if(viewNow.classList.contains("index")) makePassage(viewNext[0]);
 
         viewNow.classList.add("overview");
         navDirection=0;
@@ -243,6 +254,18 @@ function layout(){
     addmouseWhell();
 }
 
+
+
+//写文章
+function makePassage(elf){
+    var url="passage/"+elf.parentNode.attributes.id.value+".html";
+
+
+    elf.innerHTML = [                                                                                // 为什么是方括号？
+        '<iframe src="'+ url +'"></iframe>',
+         '<p><small>&copy; FusGeothe</small><p>'
+    ].join('');
+}
 
 
 
@@ -409,20 +432,19 @@ function elfmouseover(overelf){
         else overelf.style.background=config.index_over_BG;
 
 
-        //给titlename换装
-        overP.classList.add(overEC[0]+"_over_name");
-        overP.classList.remove(overEC[0]+"_name");
-
         //只有处于next层的元素才能tonext
         if(overEC.contains("next"))overEC.add("tonext");
 
         if(overEC.contains("title")&&!overEC.contains("overview")){
+
+            overP.style.color=config.title_over_name;
+
             for(var i=0;i<view.title_wrapper.length;i++){
                 if(!view.title_wrapper[i].classList.contains("tonext")) view.title_wrapper[i].style.display="none";
             }
 
             view.cover_wrapper.style.background=config.bookcover_overBG;
-        }
+        }else if(overEC.contains("index")) overP.style.color=config.index_over_name;
 
 
     }else{
@@ -435,28 +457,33 @@ function elfmouseover(overelf){
 //mouseout的处理方式
 function elfmouseout(outelf){
 
-    var outEC = outelf.classList;
-    var outP;
+
+    if(!outelf.classList.contains("overview")){
+        var outEC = outelf.classList;
+        var outP;
 
 
-    outelf.classList.add("sort");
-    outP=outelf.querySelector(".sort > p");
-    outelf.classList.remove("sort");
+        outelf.classList.add("sort");
+        outP=outelf.querySelector(".sort > p");
+        outelf.classList.remove("sort");
 
-   if(outEC.contains("title")) outelf.style.background=config.title_BG;
-    else outelf.style.background=config.index_BG;
+        if(outEC.contains("title")) outelf.style.background=config.title_BG;
+        else outelf.style.background=config.index_BG;
 
-    outP.classList.add(outEC[0]+"_name");
-    outP.classList.remove(outEC[0]+"_over_name");
 
-    if(outEC.contains("title")&&!outEC.contains("overview")){
-        for(var i=0;i<view.title_wrapper.length;i++)
-          view.title_wrapper[i].style.display="block";
+        if(outEC.contains("title")&&!outEC.contains("overview")){
 
-        view.cover_wrapper.style.background=config.bookcoverBG;
+            outP.style.color=config.title_name;
+
+            for(var i=0;i<view.title_wrapper.length;i++)
+                view.title_wrapper[i].style.display="block";
+
+            view.cover_wrapper.style.background=config.bookcoverBG;
+        }else outP.style.color=config.index_name;
+
+        if (outEC.contains("tonext"))outEC.remove("tonext");
     }
 
-    if (outEC.contains("tonext"))outEC.remove("tonext");
 
 }
 
