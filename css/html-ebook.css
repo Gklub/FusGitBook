@@ -24,42 +24,29 @@ body {
     overflow: hidden;
 }
 
-body{
-    background: #CCCC00;
-}
 
-.ebook{
-    background: #FF0000;
-}
 
 .bookcover{
-    background: #0000FF;
-}
 
+    background-size: 100% 100% ;
+    background-position: center;
+
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
 
 /*__________________________title______________________*/
 
-.ebook .title_out {
+.ebook .title{
 
-
-    background: #222222;
-
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-
-}
-
-
-.ebook .title_over{
-
-    background: #626975;
+    background-size: 100% 100%;
 
     transition-property: all;
     transition-duration: 0.4s;
@@ -69,9 +56,8 @@ body{
     -webkit-animation-duration: 0.4s;
     -o-transition-property: all;
     -o-transition-duration: 0.4s;
-
-
 }
+
 
 
 
@@ -79,10 +65,10 @@ body{
 
 /*_____________________________index________________________*/
 
-.ebook .index_out{
+.ebook .index{
 
 
-    background: #C2C8D4;
+    background-size: 100% 100%;
 
     transition-property: all;
     transition-duration: 0.4s;
@@ -94,22 +80,6 @@ body{
     -o-transition-duration: 0.4s;
 }
 
-
-.ebook .index_over{
-
-
-    background: #8797B7;
-
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
 
 
 
@@ -121,6 +91,7 @@ body{
 .title_name {
 
     position: absolute;
+    left:30%;
     color:#FFFFFF;
     transition-property: all;
     transition-duration: 0.3s;
@@ -137,6 +108,7 @@ body{
 .title_over_name {
 
     position: absolute;
+    left:30%;
     color:#000000;
     transition-property: all;
     transition-duration: 0.3s;
@@ -152,6 +124,7 @@ body{
 .index_name {
 
     position: absolute;
+    left:30%;
     color:#555555;
     transition-property: all;
     transition-duration: 0.3s;
@@ -168,6 +141,7 @@ body{
 .index_over_name {
 
     position: absolute;
+    left:30%;
     color:#000000;
     transition-property: all;
     transition-duration: 0.3s;
@@ -180,6 +154,15 @@ body{
 
 
 }
+
+/*_________________________________introduction_______________________*/
+.title > .introduction{
+    text-align: center;
+    text-transform: none;
+    color: #FFFF99;
+}
+
+
 
 /*__________________________________排版bookcover_____________________*/
 
@@ -213,10 +196,10 @@ body{
 
 #title_1 {
     position:absolute;
-    height: 20%;
-    width:  20%;
-    left:50%;
-    top:50%;
+    height:20%;
+    width:20%;
+    left:19%;
+    top:10%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -229,10 +212,122 @@ body{
 
 #title_2{
     position:absolute;
-    height: 20%;
-    width:  20%;
-    left:10%;
-    top: 10%;
+    height:20%;
+    width:20%;
+    left:39.5%;
+    top:10%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_3{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:60%;
+    top:10%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_4{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:19%;
+    top:40%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_5{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:39.5%;
+    top:40%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_6{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:60%;
+    top:40%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_7{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:19%;
+    top:70%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_8{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:39.5%;
+    top:70%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+}
+
+#title_9{
+    position:absolute;
+    height:20%;
+    width:20%;
+    left:60%;
+    top:70%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -244,17 +339,14 @@ body{
 }
 
 
-
-
-
 /*_________________________排版index_________________________*/
 
 #t_1_index_1{
-    height: 20%;
-    width:  20%;
+    height: 30%;
+    width:  30%;
     position: absolute;
-    left: 40%;
-    top: 20%;
+    left: 15%;
+    top: 30%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -268,10 +360,10 @@ body{
 
 #t_1_index_2{
     position: absolute;
-    height: 20%;
-    width:  20%;
-    left: 40%;
-    top: 40%;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -283,13 +375,46 @@ body{
 
 }
 
+#t_1_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_1_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
 
 #t_2_index_1{
+    height: 30%;
+    width:  30%;
     position: absolute;
-    height: 20%;
-    width:  20%;
-    left: 40%;
-    top: 20%;
+    left: 15%;
+    top: 30%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -303,10 +428,10 @@ body{
 
 #t_2_index_2{
     position: absolute;
-    height: 20%;
-    width:  20%;
-    left: 40%;
-    top: 40%;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -318,3 +443,512 @@ body{
 
 }
 
+#t_2_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_2_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_3_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_3_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_3_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_3_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_4_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_4_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_4_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_4_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_5_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_5_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_5_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_5_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_6_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_6_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_6_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_6_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_7_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_7_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_7_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_7_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_8_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_8_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_8_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_8_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_9_index_1{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_9_index_2{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 30%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_9_index_3{
+    height: 30%;
+    width:  30%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
+
+#t_9_index_4{
+    position: absolute;
+    height: 30%;
+    width:  30%;
+    left: 55%;
+    top: 65%;
+    transition-property: all;
+    transition-duration: 0.4s;
+    -moz-transition-property: all;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-animation-duration: 0.4s;
+    -o-transition-property: all;
+    -o-transition-duration: 0.4s;
+
+}
