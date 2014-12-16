@@ -4,13 +4,13 @@
 
 
     transition-property: width ,length,top,left ;
-    transition-duration: 0.4s;
+    transition-duration: 0.3s;
     -moz-transition-property: width ,length,top,left;
-    -moz-transition-duration: 0.4s;
+    -moz-transition-duration: 0.3s;
     -webkit-transition-property: width ,length,top,left;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.3s;
     -o-transition-property: width ,length,top,left;
-    -o-transition-duration: 0.4s;
+    -o-transition-duration: 0.3s;
 
 }
 
@@ -24,7 +24,7 @@
 .title_name {
 
     position: absolute;
-    left:30%;
+    left:15%;
 
     transition-property: all;
     transition-duration: 0.3s;
@@ -107,9 +107,9 @@
     position:absolute;
     height:6.4%;
     width:6.4%;
-    left:41.3%;
-    top:10%;
 
+    left:59%;
+    top:10%;
 }
 
 
@@ -120,9 +120,9 @@
     position:absolute;
     height:6.4%;
     width:6.4%;
-    left:59%;
-    top:10%;
 
+    left:57.3%;
+    top:25%;
 
 }
 /*_____________________________排版title 3______________________________*/
@@ -139,9 +139,9 @@
     position:absolute;
     height:6.4%;
     width:6.4%;
-    left:57.3%;
-    top:25%;
 
+    left:41.3%;
+    top:10%;
 }
 /*_____________________________排版title 5______________________________*/
 #title_5{
@@ -175,16 +175,16 @@
     position:absolute;
     height:6.4%;
     width:6.4%;
-    left:28.5%;
-    top:78.5%;
 
+    left:55.3%;
+    top:78.5%;
 }
 /*_____________________________排版title 9______________________________*/
 #title_9{
     position:absolute;
     height:6.4%;
     width:6.4%;
-    left:55.3%;
+    left:28.5%;
     top:78.5%;
 
 }
