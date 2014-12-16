@@ -3,13 +3,13 @@
 .ebook .title,.ebook .index{
 
 
-    transition-property: all;
+    transition-property: width ,length,top,left ;
     transition-duration: 0.4s;
-    -moz-transition-property: all;
+    -moz-transition-property: width ,length,top,left;
     -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
+    -webkit-transition-property: width ,length,top,left;
     -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
+    -o-transition-property: width ,length,top,left;
     -o-transition-duration: 0.4s;
 
 }
@@ -79,13 +79,13 @@
     width:  24%;
     left: 31.5%;
     top: 38%;
-    transition-property: all;
+    transition-property: width ,length,top,left ;
     transition-duration: 0.4s;
-    -moz-transition-property: all;
+    -moz-transition-property: width ,length,top,left;
     -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
+    -webkit-transition-property: width ,length,top,left;
     -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
+    -o-transition-property: width ,length,top,left;
     -o-transition-duration: 0.4s;
 
 }

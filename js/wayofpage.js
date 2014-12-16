@@ -11,6 +11,8 @@ var view={},//显示的面板
 
     navDirection=0,    //判定前进方向
 
+    IsInIframe=0,      //判断是否在iframe中
+
     config= {
         //决定title,index,bookcover的背景
         title_over_BG:"url('img/titleBG.png')",
@@ -236,9 +238,11 @@ function layout(){
         viewNow.style.height=config.bodyHeight+"px";
         viewNow.style.width=config.bodyWidth+"px";
 
+        viewNow.classList.add("overview");
+
         if(viewNow.classList.contains("index")) makePassage(viewNext[0]);
 
-        viewNow.classList.add("overview");
+
         navDirection=0;
 
     }else if(navDirection<0){
@@ -275,6 +279,8 @@ function makePassage(elf){
         '<iframe src="'+ url +'"></iframe>',
          '<p><small>&copy; FusGeothe</small><p>'
     ].join('');
+
+    addIframeMouse();
 }
 
 
@@ -385,7 +391,7 @@ function downFocusPosition(){
 
     var downElf=document.querySelector(".now");
 
-    if(!downElf.classList.contains("ebook")){
+    if(!downElf.classList.contains("ebook")&&!IsInIframe){
 
         //方向
         navDirection=-1;
@@ -505,8 +511,19 @@ function elfmouseout(outelf){
 
 
 
+//为iframe添加动作
+function addIframeMouse(){
+    var aimIframe=document.querySelectorAll("iframe");
 
+    toArray(aimIframe).forEach(function(elf){
+        if(!elf.classList.contains("hasMouseListen")){
+            elf.addEventListener('mouseover',function(){IsInIframe=1;},false);
+            elf.addEventListener('mouseout',function(){IsInIframe=0;},false);
 
+            elf.classList.add('hasMouseListen');
+        }
+    })
+}
 
 
 
