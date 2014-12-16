@@ -42,7 +42,7 @@
 .index_name {
 
     position: absolute;
-    left:30%;
+    left:15%;
     transition-property: all;
     transition-duration: 0.3s;
     -moz-transition-property: all;
@@ -101,7 +101,7 @@
 
 }
 
-/*_____________________________排版title______________________________*/
+/*_____________________________排版title 1______________________________*/
 
 #title_1 {
     position:absolute;
@@ -112,6 +112,10 @@
 
 }
 
+
+
+
+/*_____________________________排版title 2______________________________*/
 #title_2{
     position:absolute;
     height:6.4%;
@@ -121,7 +125,7 @@
 
 
 }
-
+/*_____________________________排版title 3______________________________*/
 #title_3{
     position:absolute;
     height:6.4%;
@@ -130,7 +134,7 @@
     top:25%;
 
 }
-
+/*_____________________________排版title 4______________________________*/
 #title_4{
     position:absolute;
     height:6.4%;
@@ -139,7 +143,7 @@
     top:25%;
 
 }
-
+/*_____________________________排版title 5______________________________*/
 #title_5{
     position:absolute;
     height:6.4%;
@@ -148,7 +152,7 @@
     top:54%;
 
 }
-
+/*_____________________________排版title 6______________________________*/
 #title_6{
     position:absolute;
     height:6.4%;
@@ -157,7 +161,7 @@
     top:59%;
 
 }
-
+/*_____________________________排版title 7______________________________*/
 #title_7{
     position:absolute;
     height:6.4%;
@@ -166,7 +170,7 @@
     top:64%;
 
 }
-
+/*_____________________________排版title 8______________________________*/
 #title_8{
     position:absolute;
     height:6.4%;
@@ -175,7 +179,7 @@
     top:78.5%;
 
 }
-
+/*_____________________________排版title 9______________________________*/
 #title_9{
     position:absolute;
     height:6.4%;
@@ -191,11 +195,11 @@
 #t_1_index_1,#t_2_index_1,#t_3_index_1,#t_4_index_1,#t_5_index_1,#t_6_index_1
 ,#t_7_index_1,#t_8_index_1,#t_9_index_1
  {
-    height: 30%;
-    width:  30%;
+    height: 15%;
+    width:  40%;
     position: absolute;
-    left: 15%;
-    top: 30%;
+    left: 7.5%;
+    top: 25%;
 
 
 }
@@ -204,10 +208,10 @@
 ,#t_7_index_2,#t_8_index_2,#t_9_index_2
 {
     position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
+    height: 15%;
+    width:  40%;
+    left: 52.5%;
+    top: 25%;
 
 
 }
@@ -215,11 +219,11 @@
 #t_1_index_3,#t_2_index_3,#t_3_index_3,#t_4_index_3,#t_5_index_3,#t_6_index_3
 ,#t_7_index_3,#t_8_index_3,#t_9_index_3
 {
-    height: 30%;
-    width:  30%;
+    height: 15%;
+    width:  40%;
     position: absolute;
-    left: 15%;
-    top: 65%;
+    left: 7.5%;
+    top: 50%;
 
 
 }
@@ -228,15 +232,37 @@
 ,#t_7_index_4,#t_8_index_4,#t_9_index_4
 {
     position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
+    height: 15%;
+    width:  40%;
+    left: 52.5%;
+    top: 50%;
 
 
 }
 
+#t_1_index_5,#t_2_index_5,#t_3_index_5,#t_4_index_5,#t_5_index_5,#t_6_index_5
+,#t_7_index_5,#t_8_index_5,#t_9_index_5
+{
+    position: absolute;
+    height: 15%;
+    width:  40%;
+    left: 7.5%;
+    top: 75%;
 
+
+}
+
+#t_1_index_6,#t_2_index_6,#t_3_index_6,#t_4_index_6,#t_5_index_6,#t_6_index_6
+,#t_7_index_6,#t_8_index_6,#t_9_index_6
+{
+    position: absolute;
+    height: 15%;
+    width:  40%;
+    left: 52.5%;
+    top: 75%;
+
+
+}
 
 
 /*<________________________________里层____________________________>*/
