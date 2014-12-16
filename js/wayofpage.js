@@ -12,10 +12,10 @@ var view={},//显示的面板
     navDirection=0,    //判定前进方向
 
     config= {
-        //决定overview时的颜色，最好和mouseover时一样；
-        title_over_BG:"#6b6b6b",
+        //决定title,index,bookcover的背景
+        title_over_BG:"url('img/titleBG.png')",
 
-        index_over_BG:"#C2C8D4",
+        index_over_BG:"url('img/indexBG.png')",
 
         title_BG:"#000000",
 
@@ -286,6 +286,10 @@ function update(){
         updateView();
 
         updateFont();
+
+        //使ebook得introduction更大
+        if(view.ebook_wrapper.classList.contains("now"))
+            view.ebook_wrapper.querySelector('p').style.fontSize=1.23*view.cover_wrapper.offsetHeight+"px";
     }
 
     setTimeout(update,10);

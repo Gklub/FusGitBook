@@ -1,32 +1,6 @@
 
 
-html,
-body, .ebook {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    position: absolute;
-    line-height: 1;
-}
-
-
-.bookcover,.title,.index{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    overflow: hidden;
-}
-
-
-
-.ebook .title,.ebook .index,.bookcover{
+.ebook .title,.ebook .index{
 
 
     transition-property: all;
@@ -89,18 +63,22 @@ body {
     color: #FFFF99;
 }
 
+.ebook > .introduction{
+    color:#000000;
+    position: absolute;
+    left: 49.9%;
 
+}
 
 /*__________________________________排版bookcover_____________________*/
 
 
 #bookcover{
     position:absolute;
-    height: 30%;
-    width:  30%;
-    left: 35%;
-    top: 35%;
-
+    height: 24%;
+    width:  24%;
+    left: 31.5%;
+    top: 38%;
     transition-property: all;
     transition-duration: 0.4s;
     -moz-transition-property: all;
@@ -109,16 +87,17 @@ body {
     -webkit-animation-duration: 0.4s;
     -o-transition-property: all;
     -o-transition-duration: 0.4s;
+
 }
 
 
 #bookcoverStart{
     position:absolute;
 
-    height: 30%;
-    width:  30%;
-    left: 35%;
-    top: 35%;
+    height: 24%;
+    width:  24%;
+    left: 31.5%;
+    top: 38%;
 
 }
 
@@ -126,759 +105,182 @@ body {
 
 #title_1 {
     position:absolute;
-    height:20%;
-    width:20%;
-    left:19%;
+    height:6.4%;
+    width:6.4%;
+    left:41.3%;
     top:10%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+
 }
 
 #title_2{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:39.5%;
+    height:6.4%;
+    width:6.4%;
+    left:59%;
     top:10%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+
+
 }
 
 #title_3{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:60%;
-    top:10%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:38.3%;
+    top:25%;
+
 }
 
 #title_4{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:19%;
-    top:40%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:57.3%;
+    top:25%;
+
 }
 
 #title_5{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:39.5%;
-    top:40%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:36.5%;
+    top:54%;
+
 }
 
 #title_6{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:60%;
-    top:40%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:44%;
+    top:59%;
+
 }
 
 #title_7{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:19%;
-    top:70%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:51.5%;
+    top:64%;
+
 }
 
 #title_8{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:39.5%;
-    top:70%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:28.5%;
+    top:78.5%;
+
 }
 
 #title_9{
     position:absolute;
-    height:20%;
-    width:20%;
-    left:60%;
-    top:70%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    height:6.4%;
+    width:6.4%;
+    left:55.3%;
+    top:78.5%;
+
 }
 
 
 /*_________________________排版index_________________________*/
 
-#t_1_index_1{
+#t_1_index_1,#t_2_index_1,#t_3_index_1,#t_4_index_1,#t_5_index_1,#t_6_index_1
+,#t_7_index_1,#t_8_index_1,#t_9_index_1
+ {
     height: 30%;
     width:  30%;
     position: absolute;
     left: 15%;
     top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+
 
 }
 
-#t_1_index_2{
+#t_1_index_2,#t_2_index_2,#t_3_index_2,#t_4_index_2,#t_5_index_2,#t_6_index_2
+,#t_7_index_2,#t_8_index_2,#t_9_index_2
+{
     position: absolute;
     height: 30%;
     width:  30%;
     left: 55%;
     top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+
 
 }
 
-#t_1_index_3{
+#t_1_index_3,#t_2_index_3,#t_3_index_3,#t_4_index_3,#t_5_index_3,#t_6_index_3
+,#t_7_index_3,#t_8_index_3,#t_9_index_3
+{
     height: 30%;
     width:  30%;
     position: absolute;
     left: 15%;
     top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+
 
 }
 
-#t_1_index_4{
+#t_1_index_4,#t_2_index_4,#t_3_index_4,#t_4_index_4,#t_5_index_4,#t_6_index_4
+,#t_7_index_4,#t_8_index_4,#t_9_index_4
+{
     position: absolute;
     height: 30%;
     width:  30%;
     left: 55%;
     top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+
 
 }
 
-#t_2_index_1{
-    height: 30%;
-    width:  30%;
+
+
+
+/*<________________________________里层____________________________>*/
+/*<________________________________里层____________________________>*/
+/*<________________________________里层____________________________>*/
+
+html,
+body, .ebook {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
     position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
+    line-height: 1;
+}
+
+
+.bookcover,.title,.index{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    overflow: hidden;
+}
+
+iframe{
+    border:0;
+    padding:0;
+    margin:0;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top:20%;
+    left:20%;
 
 }
 
-#t_2_index_2{
+p > small{
     position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_2_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_2_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_3_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_3_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_3_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_3_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_4_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_4_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_4_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_4_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_5_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_5_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_5_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_5_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_6_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_6_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_6_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_6_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_7_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_7_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_7_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_7_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_8_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_8_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_8_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_8_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_9_index_1{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_9_index_2{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 30%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_9_index_3{
-    height: 30%;
-    width:  30%;
-    position: absolute;
-    left: 15%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
-}
-
-#t_9_index_4{
-    position: absolute;
-    height: 30%;
-    width:  30%;
-    left: 55%;
-    top: 65%;
-    transition-property: all;
-    transition-duration: 0.4s;
-    -moz-transition-property: all;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: all;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: all;
-    -o-transition-duration: 0.4s;
-
+    top:97%;
+    left:94%;
 }
