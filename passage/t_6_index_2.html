@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/tt.css" type="text/css">
+</head>
+<body>
+
+<h1>解决冲突</h1>
+<p>人生不如意之事十之八九，合并分支往往也不是一帆风顺的。</p>
+
+<p>准备新的feature1分支，继续我们的新分支开发：</p>
+
+<p>$ git checkout -b feature1<br>
+Switched to a new branch 'feature1'</p>
+<p>修改readme.txt最后一行，改为：</p>
+
+
+<p>Creating a new branch is quick AND simple.</p>
+<p>在feature1分支上提交：</p>
+
+<p>$ git add readme.txt
+<br>$ git commit -m "AND simple"
+<br>[feature1 75a857c] AND simple
+<br>1 file changed, 1 insertion(+), 1 deletion(-)</p>
+<p>切换到master分支：</p>
+
+<p>$ git checkout master
+<br>Switched to branch 'master'
+<br>Your branch is ahead of 'origin/master' by 1 commit.</p>
+<br><br>Git还会自动提示我们当前master分支比远程的master分支要超前1个提交。
+
+<br><br>在master分支上把readme.txt文件的最后一行改为：
+
+<br><br>Creating a new branch is quick & simple.
+<br><br>提交：
+
+<br><br>$ git add readme.txt
+<br>$ git commit -m "& simple"
+<br>[master 400b400] & simple
+<br>1 file changed, 1 insertion(+), 1 deletion(-)
+<br><br>现在，master分支和feature1分支各自都分别有新的提交，变成了这样：
+<br><br>
+<img src="../img/6_2_1.png" alt="../img/6_2_1.png">
+
+<br><br>这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，我们试试看：
+
+<br><br>$ git merge feature1
+<br>Auto-merging readme.txt
+<br>CONFLICT (content): Merge conflict in readme.txt
+<br>Automatic merge failed; fix conflicts and then commit the result.
+<br><br>果然冲突了！Git告诉我们，readme.txt文件存在冲突，必须手动解决冲突后再提交。git status也可以告诉我们冲突的文件：
+<br><br>
+<br>$ git status
+<br># On branch master
+<br># Your branch is ahead of 'origin/master' by 2 commits.
+<br>#
+<br># Unmerged paths:
+<br>#   (use "git add/rm &lt;file&gt..." as appropriate to mark resolution)
+<br>    #
+<br> #       both modified:      readme.txt
+<br>#
+<br>    no changes added to commit (use "git add" and/or "git commit -a")
+<br><br>我们可以直接查看readme.txt的内容：
+
+<br><br>    Git is a distributed version control system.
+<br>  Git is free software distributed under the GPL.
+<br>  Git has a mutable index called stage.
+<br>    Git tracks changes of files.
+<br>    <<<<<<< HEAD
+<br>    Creating a new branch is quick & simple.
+<br>    =======
+    <br>Creating a new branch is quick AND simple.
+<br>    >>>>>>> feature1
+<br><br>    Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改如下后保存：
+
+<br><br>    Creating a new branch is quick and simple.
+<br><br>    再提交：
+
+<br><br>   $ git add readme.txt
+<br>   $ git commit -m "conflict fixed"
+<br>  [master 59bc1cb] conflict fixed
+<br><br>   现在，master分支和feature1分支变成了下图所示：
+<br><br>
+<img src="../img/6_2_2.png" alt="../img/6_2_2.png">
+<br><br>    用带参数的git log也可以看到分支的合并情况：
+
+<br><br>    $ git log --graph --pretty=oneline --abbrev-commit
+<br>   *   59bc1cb conflict fixed
+<br>   |\
+<br>   | * 75a857c AND simple
+<br>   * | 400b400 & simple
+<br>   |/
+<br>  * fec145a branch test
+<br>   ...
+<br><br>   现在，删除feature1分支：
+
+<br>    $ git branch -d feature1
+<br>  Deleted branch feature1 (was 75a857c).
+<br><br>   工作完成。
+<br><br>
+<h1>小结</h1>
+
+<br><br> 当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+
+<br><br>    用git log --graph命令可以看到分支合并图。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

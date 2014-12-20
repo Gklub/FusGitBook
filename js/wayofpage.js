@@ -15,28 +15,24 @@ var view={},//显示的面板
 
     config= {
         //决定title,index,bookcover的背景
-        title_over_BG:"url('img/titleBG.png')",
+        title_over_BG:"#FFFFFF",
 
-        index_over_BG:"url('img/indexBG.png')",
+        index_over_BG:"#FFFFFF",
 
         title_BG:"#000000",
 
-        index_BG:"#4b4b4b",
+        index_BG:"#000000",
 
-        bookcoverBG:"url('img/bookcover-out.png')",
+        bookcoverBG:"url('img/bookcover_0.png')",
 
         title_name: '#FFFFFF',
 
         title_over_name:'#000000',
 
-        index_name: '#000000',
+        index_name: '#FFFFFF',
 
-        index_over_name:'#555555',
+        index_over_name:'#000000',
 
-        //百分制
-        title_height:6.4,
-
-        title_width:6.4
 
     };
 
@@ -149,15 +145,12 @@ function analysisView() {
 function analysisFont(){
     //为字体的合适程度做准备
 
-    var aimNext=document.querySelectorAll(".next");
+    var aimNext=document.querySelector(".next");
 
-     if(aimNext[0].classList.contains("title")&&aimNext[0].classList.contains("tonext")) {
-         config.nextHeight=aimNext[1].offsetHeight;
-         config.nextWidth=aimNext[1].offsetWidth;
-     }else{
-         config.nextHeight=aimNext[0].offsetHeight;
-         config.nextWidth=aimNext[0].offsetWidth;
-     }
+
+         config.nextHeight=aimNext.offsetHeight;
+         config.nextWidth=aimNext.offsetWidth;
+
 }
 
 
@@ -202,25 +195,16 @@ function layout(){
     var viewNext=document.querySelectorAll(".next"),
         viewPast=document.querySelector(".past");
 
-    //控制box的显隐性
-    toArray(viewNext).forEach(function(elf){
-        elf.style.display="block";
-    });
-    toArray(viewNow.querySelectorAll(".next .box")).forEach(function(elf){
-        if(!elf.classList.contains("title"))elf.style.display="none";
-    });
-
 
     //控制name和introduction的显隐
     toArray(view.name).forEach(function(elf){
         if(elf.parentNode.classList.contains("next")) elf.style.display="block";
-        else elf.style.display="none";
+        else elf.style.display='none';
     });
     toArray(view.introduction).forEach(function(elf){
         if(elf.parentNode.classList.contains("now")) elf.style.display="block";
         else elf.style.display="none";
     });
-
 
     //做效果
     if(navDirection>0){
@@ -239,12 +223,17 @@ function layout(){
 
 
         //调整长和宽
+        if(viewNow.classList.contains("bookcover")){
+            viewNow.style.width=config.bodyWidth+"px";
+            viewNow.style.height=config.bodywid
+        }
         viewNow.style.height=config.bodyHeight+"px";
         viewNow.style.width=config.bodyWidth+"px";
-
+        viewNow.style.borderRadius=0+"%";
+        viewNow.style.border="0px";
         viewNow.classList.add("overview");
 
-        if(viewNow.classList.contains("index")) makePassage(viewNext[0]);
+        if(viewNext[0].classList.contains("passage")) makePassage(viewNext[0]);
 
 
         navDirection=0;
@@ -257,7 +246,7 @@ function layout(){
 
                 viewNext[i].removeAttribute("style");
 
-                if(viewNext[i].classList.contains("bookcover"))     bookcoverChange(viewNext[i],config.bookcoverBG);
+               if(viewNext[i].classList.contains("bookcover"))     bookcoverChange(viewNext[i],config.bookcoverBG);
                 else if(viewNext[i].classList.contains("title")) bookcoverChange(viewNext[i],config.title_BG);
                 else bookcoverChange(viewNext[i],config.index_BG);
 
@@ -268,6 +257,11 @@ function layout(){
 
         navDirection=0;
     }
+
+
+
+
+
 
     addmouseWhell();
 }
@@ -295,11 +289,13 @@ function update(){
         if(config.bodyHeight!=document.body.offsetHeight||config.bodyWidth!=document.body.offsetWidth)
         updateView();
 
+        updateDisplay();
+
         updateFont();
 
         //使ebook得introduction更大
         if(view.ebook_wrapper.classList.contains("now"))
-            view.ebook_wrapper.querySelector('p').style.fontSize=1.23*view.cover_wrapper.offsetHeight+"px";
+            view.ebook_wrapper.querySelector('p').style.fontSize=0.6*view.cover_wrapper.offsetHeight+"px";
     }
 
     setTimeout(update,10);
@@ -332,26 +328,28 @@ function updateFont(){
     var toFontTop=(config.nextHeight-toFontSize)/4;
 
     toArray(view.name).forEach(function(elf){
-        if(elf.parentNode.classList.contains("title")){
-            if(elf.parentNode.classList.contains("tonext")){
-                elf.style.fontSize=toFontSize*2+"px";
-                elf.style.top=toFontTop*3.8+"px";
-            }else{
                 elf.style.fontSize=toFontSize+"px";
-                elf.style.top=-toFontTop+"px";
-            }
-        }else{
-            elf.style.fontSize=toFontSize*2+"px";
-            elf.style.top=-toFontTop+"px";
-        }
-
+                elf.style.top=-toFontTop/2+"px";
     });
+
+
 
 }
 
 
 
+function updateDisplay(){
+    var viewNext =document.querySelectorAll(".next");
+    var viewNow =document.querySelector(".now");
 
+    //控制box的显隐性
+    toArray(viewNext).forEach(function(elf){
+        elf.style.display="block";
+    });
+    toArray(viewNow.querySelectorAll(".next .box")).forEach(function(elf){
+        elf.style.display="none";
+    });
+}
 
 
 //前滚鼠标处理方式
@@ -473,10 +471,9 @@ function elfmouseover(overelf){
             //字体颜色变换
             overP.style.color=config.title_over_name;
 
-            overelf.style.zIndex=z_indexE+5;
+            bookcoverChange(view.cover_wrapper,"url('img/bookcover_"+overelf.attributes.id.value+".png')");
 
-            overelf.style.height=config.title_height*3+"%";
-            overelf.style.width=config.title_width*3+"%";
+            overelf.style.zIndex=z_indexE+5;
 
 
         }else if(overEC.contains("index")) overP.style.color=config.index_over_name;
@@ -508,6 +505,8 @@ function elfmouseout(outelf){
 
 
             outP.style.color=config.title_name;
+
+            bookcoverChange(view.cover_wrapper,"url('img/bookcover_0.png')");
 
             outelf.removeAttribute("style");
 

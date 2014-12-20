@@ -57,16 +57,26 @@
 
 
 /*_________________________________introduction_______________________*/
-.title > .introduction{
-    text-align: center;
-    text-transform: none;
-    color: #FFFF99;
+
+
+.bookcover .introduction{
+    color:#000000;
+    font-family:serif;
+    font-size: 1.5em;
+    position: absolute;
+    left:3%;
+
+
 }
+
 
 .ebook > .introduction{
     color:#000000;
+    font-family:serif;
+    z-index: 5;
     position: absolute;
-    left: 49.9%;
+    left: 49.1%;
+    top:24.8%;
 
 }
 
@@ -77,8 +87,8 @@
     position:absolute;
     height: 24%;
     width:  24%;
-    left: 31.5%;
-    top: 38%;
+    left: 34.5%;
+    top: 37.5%;
     transition-property: width ,length,top,left ;
     transition-duration: 0.4s;
     -moz-transition-property: width ,length,top,left;
@@ -96,8 +106,8 @@
 
     height: 24%;
     width:  24%;
-    left: 31.5%;
-    top: 38%;
+    left: 34.5%;
+    top: 37.5%;
 
 }
 
@@ -105,9 +115,8 @@
 
 #title_1 {
     position:absolute;
-    height:6.4%;
-    width:6.4%;
-
+    height:120px;
+    width:120px;
     left:59%;
     top:10%;
 }
@@ -118,8 +127,8 @@
 /*_____________________________排版title 2______________________________*/
 #title_2{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
+    height:120px;
+    width:120px;
 
     left:57.3%;
     top:25%;
@@ -128,8 +137,8 @@
 /*_____________________________排版title 3______________________________*/
 #title_3{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
+    height:120px;
+    width:120px;
     left:38.3%;
     top:25%;
 
@@ -137,26 +146,24 @@
 /*_____________________________排版title 4______________________________*/
 #title_4{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
-
+    height:120px;
+    width:120px;
     left:41.3%;
     top:10%;
 }
 /*_____________________________排版title 5______________________________*/
 #title_5{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
+    height:120px;
+    width:120px;
     left:36.5%;
     top:54%;
-
 }
 /*_____________________________排版title 6______________________________*/
 #title_6{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
+    height:120px;
+    width:120px;
     left:44%;
     top:59%;
 
@@ -164,8 +171,8 @@
 /*_____________________________排版title 7______________________________*/
 #title_7{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
+    height:120px;
+    width:120px;
     left:51.5%;
     top:64%;
 
@@ -173,20 +180,18 @@
 /*_____________________________排版title 8______________________________*/
 #title_8{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
-
+    height:120px;
+    width:120px;
     left:55.3%;
     top:78.5%;
 }
 /*_____________________________排版title 9______________________________*/
 #title_9{
     position:absolute;
-    height:6.4%;
-    width:6.4%;
+    height:120px;
+    width:120px;
     left:28.5%;
     top:78.5%;
-
 }
 
 
@@ -195,12 +200,11 @@
 #t_1_index_1,#t_2_index_1,#t_3_index_1,#t_4_index_1,#t_5_index_1,#t_6_index_1
 ,#t_7_index_1,#t_8_index_1,#t_9_index_1
  {
-    height: 15%;
-    width:  40%;
+    height: 120px;
+    width:  120px;
     position: absolute;
     left: 7.5%;
     top: 25%;
-
 
 }
 
@@ -208,8 +212,8 @@
 ,#t_7_index_2,#t_8_index_2,#t_9_index_2
 {
     position: absolute;
-    height: 15%;
-    width:  40%;
+    height: 120px;
+    width:  120px;
     left: 52.5%;
     top: 25%;
 
@@ -219,12 +223,11 @@
 #t_1_index_3,#t_2_index_3,#t_3_index_3,#t_4_index_3,#t_5_index_3,#t_6_index_3
 ,#t_7_index_3,#t_8_index_3,#t_9_index_3
 {
-    height: 15%;
-    width:  40%;
+    height: 120px;
+    width:  120px;
     position: absolute;
     left: 7.5%;
     top: 50%;
-
 
 }
 
@@ -232,11 +235,10 @@
 ,#t_7_index_4,#t_8_index_4,#t_9_index_4
 {
     position: absolute;
-    height: 15%;
-    width:  40%;
+    height: 120px;
+    width:  120px;
     left: 52.5%;
     top: 50%;
-
 
 }
 
@@ -244,8 +246,8 @@
 ,#t_7_index_5,#t_8_index_5,#t_9_index_5
 {
     position: absolute;
-    height: 15%;
-    width:  40%;
+    height: 120px;
+    width:  120px;
     left: 7.5%;
     top: 75%;
 
@@ -256,8 +258,8 @@
 ,#t_7_index_6,#t_8_index_6,#t_9_index_6
 {
     position: absolute;
-    height: 15%;
-    width:  40%;
+    height: 120px;
+    width:  120px;
     left: 52.5%;
     top: 75%;
 
@@ -285,7 +287,7 @@ body {
 }
 
 
-.bookcover,.title,.index{
+.bookcover{
     margin: 0;
     padding: 0;
     border: 0;
@@ -293,20 +295,31 @@ body {
     overflow: hidden;
 }
 
+.title,.index{
+    margin: 0;
+    padding: 0;
+    border: 8px solid #000000 ;
+    border-radius: 50%;
+    vertical-align: baseline;
+    overflow: hidden;
+}
+
+
 iframe{
     border:0;
     padding:0;
     margin:0;
     width: 80%;
-    height: 80%;
+    height: 85%;
     position: absolute;
-    top:20%;
-    left:20%;
+    top:7.5%;
+    left:17.5%;
 
 }
 
 p > small{
     position: absolute;
-    top:97%;
-    left:94%;
+    z-index: 25;
+    top:95%;
+    left:4%;
 }

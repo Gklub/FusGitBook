@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/tt.css" type="text/css">
+</head>
+<body>
+
+<h1>工作区和暂存区</h1>
+<p>Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念。</p>
+<p>先来看名词解释。</p>
+<h6>工作区</h6>（Working Directory）：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区：
+<img src="../img/4_2_1.png" alt="4_2_1.png">
+<h6>版本库</h6>（Repository）：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+<p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
+<img src="../img/4_2_2.jpg" alt="4_2_2.jpg">
+<p>分支和HEAD的概念我们以后再讲。</p>
+<p>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
+<p>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<p>因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。</p>
+<p>你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+<p>俗话说，实践出真知。现在，我们再练习一遍，先对readme.txt做个修改，比如加上一行内容：</p>
+<p>Git is a distributed version control system.<br>
+    Git is free software distributed under the GPL.<br>
+    Git has a mutable index called stage.</p>
+<p>然后，在工作区新增一个LICENSE文本文件（内容随便写）。</p>
+<p>先用git status查看一下状态：</p>
+<p>     $ git status<br>
+        # On branch master<br>
+        # Changes not staged for commit:<br>
+        #   (use "git add &lt;file&gt..." to update what will be committed)<br>
+        #   (use "git checkout -- &lt;file&gt..." to discard changes in working directory)<br>
+        #<br>
+        #       modified:   readme.txt<br>
+        #<br>
+        # Untracked files:<br>
+        #   (use "git add &lt;file&gt..." to include in what will be committed)<br>
+        #<br>
+        #       LICENSE<br>
+        no changes added to commit (use "git add" and/or "git commit -a")</p>
+<p>Git非常清楚地告诉我们，readme.txt被修改了，而LICENSE还从来没有被添加过，所以它的状态是Untracked。</p>
+<p>现在，使用两次命令git add，把readme.txt和LICENSE都添加后，用git status再查看一下：</p>
+<p>$ git status<br>
+    # On branch master<br>
+    # Changes to be committed:<br>
+    #   (use "git reset HEAD &lt;file&gt..." to unstage)<br>
+    #<br>
+    #       new file:   LICENSE<br>
+    #       modified:   readme.txt<br>
+    #</p>
+<p>现在，暂存区的状态就变成这样了：</p>
+<img src="../img/4_2_3.jpg" alt="4_2_3.jpg">
+<p>所以，git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行git commit就可以一次性把暂存区的所有修改提交到分支。</p>
+<p>$ git commit -m "understand how stage works"<br>
+    [master 27c9860] understand how stage works<br>
+    2 files changed, 675 insertions(+)<br>
+    create mode 100644 LICENSE</p>
+<p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：</p>
+<p>$ git status<br>
+    # On branch master<br>
+    nothing to commit (working directory clean)</p>
+<p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
+<img src="../img/4_2_4.jpg" alt="4_2_4.jpg">
+<h1>小结</h1>
+<p>暂存区是Git非常重要的概念，弄明白了暂存区，就弄明白了Git的很多操作到底干了什么。</p>
+<p>没弄明白暂存区是怎么回事的童鞋，请向上滚动页面，再看一次。</p>
+
+</body>
+</html>
