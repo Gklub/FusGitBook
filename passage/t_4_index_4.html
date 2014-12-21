@@ -7,16 +7,16 @@
 </head>
 <body>
 <h1>撤销修改</h1>
-<p>自然，你是不会犯错的。不过现在是凌晨两点，你正在赶一份工作报告，你在readme.txt中添加了一行：</p>
+<p>自然，你是不会犯错的。不过现在是凌晨两点，你正在赶一份工作报告，你在readme.txt中添加了一行：</p><div class="bbb">
 <p>$ cat readme.txt<br>
     Git is a distributed version control system.<br>
     Git is free software distributed under the GPL.<br>
     Git has a mutable index called stage.<br>
     Git tracks changes of files.<br>
-    My stupid boss still prefers SVN.</p>
+    My stupid boss still prefers SVN.</p></div>
 <p>在你准备提交前，一杯咖啡起了作用，你猛然发现了“stupid boss”可能会让你丢掉这个月的奖金！</p>
-<P>既然错误发现得很及时，就可以很容易地纠正它。你可以删掉最后一行，手动把文件恢复到上一个版本的状态。如果用git status查看一下：</P>
-<p>$ git status<br>
+<P>既然错误发现得很及时，就可以很容易地纠正它。你可以删掉最后一行，手动把文件恢复到上一个版本的状态。如果用<span class="aaa">git status</span>查看一下：</P>
+<div class="bbb"><p>$ git status<br>
     # On branch master<br>
     # Changes not staged for commit:<br>
     #   (use "git add &lt;file&gt..." to update what will be committed)<br>
@@ -24,66 +24,66 @@
             #<br>
             #       modified:   readme.txt<br>
             #<br>
-            no changes added to commit (use "git add" and/or "git commit -a")</p>
-<p>你可以发现，Git会告诉你，git checkout -- file可以丢弃工作区的修改：</p>
-<p>$ git checkout -- readme.txt</p>
-<p>命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：</p>
-<p>一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
-<p>一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
-<p>总之，就是让这个文件回到最近一次git commit或git add时的状态。</p>
-<p>现在，看看readme.txt的文件内容：</p>
-<p>$ cat readme.txt<br>
+            no changes added to commit (use "git add" and/or "git commit -a")</p></div>
+<p>你可以发现，Git会告诉你，<span class="aaa">git checkout -- file</span>可以丢弃工作区的修改：</p>
+<div class="bbb"><p>$ git checkout -- readme.txt</p></div>
+<p>命令<span class="aaa">git checkout -- readme.txt</span>意思就是，把<span class="aaa">readme.txt</span>文件在工作区的修改全部撤销，这里有两种情况：</p>
+<p>一种是<span class="aaa">readme.txt</span>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>一种是<span class="aaa">readme.txt</span>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<p>总之，就是让这个文件回到最近一次<span class="aaa">git commit</span>或<span class="aaa">git add</span>时的状态。</p>
+<p>现在，看看<span class="aaa">readme.txt</span>的文件内容：</p>
+<div class="bbb"><p>$ cat readme.txt<br>
     Git is a distributed version control system.<br>
     Git is free software distributed under the GPL.<br>
     Git has a mutable index called stage.<br>
-    Git tracks changes of files.</p>
+    Git tracks changes of files.</p></div>
 <p>文件内容果然复原了。</p>
-<p>git checkout -- file命令中的--很重要，没有--，就变成了“创建一个新分支”的命令，我们在后面的分支管理中会再次遇到git checkout命令。</p>
-<p>现在假定是凌晨3点，你不但写了一些胡话，还git add到暂存区了：</p>
-<p>$ cat readme.txt<br>
+<p><span class="aaa">git checkout -- file</span>命令中的--很重要，没有--，就变成了“创建一个新分支”的命令，我们在后面的分支管理中会再次遇到<span class="aaa">git checkout</span>命令。</p>
+<p>现在假定是凌晨3点，你不但写了一些胡话，还<span class="aaa">git add</span>到暂存区了：</p>
+<div class="bbb"><p>$ cat readme.txt<br>
     Git is a distributed version control system.<br>
     Git is free software distributed under the GPL.<br>
     Git has a mutable index called stage.<br>
     Git tracks changes of files.<br>
     My stupid boss still prefers SVN.<br>
     <br>
-    $ git add readme.txt</p>
-<p>庆幸的是，在commit之前，你发现了这个问题。用git status查看一下，修改只是添加到了暂存区，还没有提交：</p>
-<p>$ git status<br>
+    $ git add readme.txt</p></div>
+<p>庆幸的是，在<span class="aaa">commit</span>之前，你发现了这个问题。用<span class="aaa">git status</span>查看一下，修改只是添加到了暂存区，还没有提交：</p>
+<div class="bbb"><p>$ git status<br>
     # On branch master<br>
     # Changes to be committed:<br>
     #   (use "git reset HEAD &lt;file&gt..." to unstage)<br>
         #<br>
         #       modified:   readme.txt<br>
-        #</p>
-<p>Git同样告诉我们，用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区：</p>
-<p>$ git reset HEAD readme.txt<br>
+        #</p></div>
+<p>Git同样告诉我们，用命令<span class="aaa">git reset HEAD file</span>可以把暂存区的修改撤销掉（unstage），重新放回工作区：</p>
+<div class="bbb"><p>$ git reset HEAD readme.txt<br>
     Unstaged changes after reset:<br>
-    M       readme.txt</p>
-<p>git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。</p>
-<p>再用git status查看一下，现在暂存区是干净的，工作区有修改：</p>
-<p>$ git status<br>
+    M       readme.txt</p></div>
+<p><span class="aaa">git reset</span>命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用<span class="aaa">HEAD</span>时，表示最新的版本。</p>
+<p>再用<span class="aaa">git status</span>查看一下，现在暂存区是干净的，工作区有修改：</p>
+<div class="bbb"><p>$ git status<br>
     # On branch master<br>
     # Changes not staged for commit:<br>
-    #   (use "git add &lt;file&gt>..." to update what will be committed)<br>
+    #   (use "git add &lt;file&gt..." to update what will be committed)<br>
         #   (use "git checkout -- &lt;file&gt..." to discard changes in working directory)<br>
             #<br>
             #       modified:   readme.txt<br>
             #<br>
-            no changes added to commit (use "git add" and/or "git commit -a")</p>
-<p>还记得如何丢弃工作区的修改吗？</p>
+            no changes added to commit (use "git add" and/or "git commit -a")</p></div>
+<p>还记得如何丢弃工作区的修改吗？</p><div class="bbb">
 <p>$ git checkout -- readme.txt<br>
     <br>
     $ git status<br>
     # On branch master<br>
-    nothing to commit (working directory clean)</p>
+    nothing to commit (working directory clean)</p></div>
 <p>整个世界终于清静了！</p>
 <p>现在，假设你不但改错了东西，还从暂存区提交到了版本库，怎么办呢？还记得版本回退一节吗？可以回退到上一个版本。不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。还记得Git是分布式版本控制系统吗？我们后面会讲到远程版本库，一旦你把“stupid boss”提交推送到远程版本库，你就真的惨了……</p>
 <h1>小结</h1>
 <p>又到了小结时间。</p>
-<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。</p>
+<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<span class="aaa">git checkout -- file</span>。</p>
 <p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命</p>
-<p>令git reset HEAD file，就回到了场景1，第二步按场景1操作。</p>
+<p>令<span class="aaa">git reset HEAD file</span>，就回到了场景1，第二步按场景1操作。</p>
 <p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
 
 </body>

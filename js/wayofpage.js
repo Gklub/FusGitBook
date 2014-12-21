@@ -130,7 +130,6 @@ function setup(){
         }
     }
 
-
 }
 
 
@@ -222,11 +221,6 @@ function layout(){
         viewNow.style.left=0+"px";
 
 
-        //调整长和宽
-        if(viewNow.classList.contains("bookcover")){
-            viewNow.style.width=config.bodyWidth+"px";
-            viewNow.style.height=config.bodywid
-        }
         viewNow.style.height=config.bodyHeight+"px";
         viewNow.style.width=config.bodyWidth+"px";
         viewNow.style.borderRadius=0+"%";
@@ -324,12 +318,12 @@ function updateFont(){
     //得到next的大小
     analysisFont();
     //调整适合的字体大小
-    var toFontSize=Math.min(config.nextHeight,config.nextWidth)/4;
+    var toFontSize=Math.min(config.nextHeight,config.nextWidth)/6;
     var toFontTop=(config.nextHeight-toFontSize)/4;
 
     toArray(view.name).forEach(function(elf){
                 elf.style.fontSize=toFontSize+"px";
-                elf.style.top=-toFontTop/2+"px";
+                elf.style.top=toFontTop/2+"px";
     });
 
 
@@ -349,6 +343,7 @@ function updateDisplay(){
     toArray(viewNow.querySelectorAll(".next .box")).forEach(function(elf){
         elf.style.display="none";
     });
+
 }
 
 
@@ -465,16 +460,15 @@ function elfmouseover(overelf){
         //只有处于next层的元素才能tonext
         if(overEC.contains("next")) overEC.add("tonext");
 
+
+
         if(overEC.contains("title")&&!overEC.contains("overview")){
-
-
             //字体颜色变换
             overP.style.color=config.title_over_name;
 
             bookcoverChange(view.cover_wrapper,"url('img/bookcover_"+overelf.attributes.id.value+".png')");
 
             overelf.style.zIndex=z_indexE+5;
-
 
         }else if(overEC.contains("index")) overP.style.color=config.index_over_name;
 

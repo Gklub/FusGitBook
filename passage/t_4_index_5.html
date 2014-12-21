@@ -8,15 +8,15 @@
 <body>
 
 <h1>删除文件</h1>
-<p>在Git中，删除也是一个修改操作，我们实战一下，先添加一个新文件test.txt到Git并且提交：</p>
+<p>在Git中，删除也是一个修改操作，我们实战一下，先添加一个新文件test.txt到Git并且提交：</p><div class="bbb">
 <p>$ git add test.txt<br>
     $ git commit -m "add test.txt"<br>
     [master 94cdc44] add test.txt<br>
     1 file changed, 1 insertion(+)<br>
-    create mode 100644 test.txt</p>
-<p>一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用rm命令删了：</p>
-<p>$ rm test.txt</p>
-<p>这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，git status命令会立刻告诉你哪些文件被删除了：</p>
+    create mode 100644 test.txt</p></div>
+<p>一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用<span class="aaa">rm</span> 命令删了：</p><div class="bbb">
+<p>$ rm test.txt</p></div>
+<p>这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，<span class="aaa">git status</span>命令会立刻告诉你哪些文件被删除了：</p><div class="bbb">
 <p>$ git status<br>
     # On branch master<br>
     # Changes not staged for commit:<br>
@@ -25,20 +25,20 @@
             #<br>
             #       deleted:    test.txt<br>
             #<br>
-            no changes added to commit (use "git add" and/or "git commit -a")</p>
-<p>现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：</p>
+            no changes added to commit (use "git add" and/or "git commit -a")</p></div>
+<p>现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令<span class="aaa">git rm</span>删掉，并且<span class="aaa">git commit</span>：</p><div class="bbb">
 <p>$ git rm test.txt<br>
     rm 'test.txt'<br>
     $ git commit -m "remove test.txt"<br>
     [master d17efd8] remove test.txt<br>
     1 file changed, 1 deletion(-)<br>
-    delete mode 100644 test.txt</p>
+    delete mode 100644 test.txt</p></div>
 <p>现在，文件就从版本库中被删除了。</p>
-<p>另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：</p>
-<p>$ git checkout -- test.txt</p>
-<p>git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<p>另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：</p><div class="bbb">
+<p>$ git checkout -- test.txt</p></div>
+<p><span class="aaa">git checkout</span>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
 <h1>小结</h1>
-<p>命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
+<p>命令<span class="aaa">git rm</span>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
 
 </body>
 </html>

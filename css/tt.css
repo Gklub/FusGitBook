@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.aaa {
+	color: crimson;
+	padding: 1px 3px 2px 3px;
+	background-color: rgba(0, 182, 64, 0.11);
+	border: 1px solid rgba(0, 0, 94, 0.73);
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.bbb {
+	padding: 10px;
+	background-color: rgba(88, 159, 221, 0.18);
+	border: 1px solid rgba(0, 0, 81, 0.77);
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.ccc{
+	color: red;
+}

@@ -3,17 +3,18 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="../css/tt.css" type="text/css">
 </head>
 <body>
 
 <h1>从远程库克隆</h1>
 <p>上次我们讲了先有本地库，后有远程库的时候，如何关联远程库。</p>
 <p>现在，假设我们从零开发，那么最好的方式是先创建远程库，然后，从远程库克隆。</p>
-<p>首先，登陆GitHub，创建一个新的仓库，名字叫gitskills：</p>
+<p>首先，登陆GitHub，创建一个新的仓库，名字叫<span class="aaa"> gitskills</span>：</p>
 <img src="../img/5_2_1.png" alt="../img/5_2_1.png">
-<p>我们勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件。创建完毕后，可以看到README.md文件：</p>
+<p>我们勾选<span class="aaa">Initialize this repository with a README</span>，这样GitHub会自动为我们创建一个<span class="aaa">README.md</span>文件。创建完毕后，可以看到<span class="aaa">README.md</span>文件：</p>
 <img src="../img/5_2_2.png" alt="../img/5_2_2.png">
-<p>现在，远程库已经准备好了，下一步是用命令git clone克隆一个本地库：</p>
+<p>现在，远程库已经准备好了，下一步是用命令<span class="aaa">git clone</span>克隆一个本地库：</p><div class="bbb">
 <p>$ git clone git@github.com:michaelliao/gitskills.git<br>
     Cloning into 'gitskills'...<br>
     remote: Counting objects: 3, done.<br>
@@ -22,11 +23,11 @@
     <br>
     $ cd gitskills<br>
     $ ls<br>
-    README.md</p>
-<p>注意把Git库的地址换成你自己的，然后进入gitskills目录看看，已经有README.md文件了。</p>
+    README.md</p></div>
+<p>注意把Git库的地址换成你自己的，然后进入<span class="aaa">gitskills</span>目录看看，已经有<span class="aaa">README.md</span>文件了。</p>
 <p>如果有多个人协作开发，那么每个人各自从远程克隆一份就可以了。</p>
-<p>你也许还注意到，GitHub给出的地址不止一个，还可以用https://github.com/michaelliao/gitskills.git这样的地址。实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。</p>
-<p>使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。</p>
+<p>你也许还注意到，GitHub给出的地址不止一个，还可以用<span class="aaa">https://github.com/michaelliao/gitskills.git</span>这样的地址。实际上，Git支持多种协议，默认的<span class="aaa">git://</span>使用<span class="aaa">ssh</span>，但也可以使用https等其他协议。</p>
+<p>使用<span class="aaa">https</span>除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用<span class="aaa">ssh</span>协议而只能用<span class="aaa">https</span>。</p>
 
 <h1>小结</h1>
 <p>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。</p>
