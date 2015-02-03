@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/tt.css" type="text/css">
+</head>
+<body>
+<h1>操作标签</h1>
+
+<br><br>
+如果标签打错了，也可以删除：
+<br><br><div class="bbb">
+$ git tag -d v0.1<br>
+Deleted tag 'v0.1' (was e078af9)<br></div><br>
+因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。
+<br><br>
+如果要推送某个标签到远程，使用命令<span class="aaa">git push origin &lt;tagname&gt</span>：
+<br><br><div class="bbb">
+$ git push origin v1.0<br>
+Total 0 (delta 0), reused 0 (delta 0)<br>
+To git@github.com:michaelliao/learngit.git<br>
+* [new tag]         v1.0 -> v1.0<br></div><br>
+或者，一次性推送全部尚未推送到远程的本地标签：
+<br><br><div class="bbb">
+$ git push origin --tags<br>
+Counting objects: 1, done.<br>
+Writing objects: 100% (1/1), 554 bytes, done.<br>
+Total 1 (delta 0), reused 0 (delta 0)<br>
+To git@github.com:michaelliao/learngit.git<br>
+* [new tag]         v0.2 -> v0.2<br>
+* [new tag]         v0.9 -> v0.9<br></div><br>
+如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：
+<br><br><div class="bbb">
+$ git tag -d v0.9<br>
+Deleted tag 'v0.9' (was 6224937)<br></div><br>
+然后，从远程删除。删除命令也是push，但是格式如下：
+<br><br><div class="bbb">
+$ git push origin :refs/tags/v0.9<br>
+To git@github.com:michaelliao/learngit.git<br>
+- [deleted]         v0.9<br></div><br>
+要看看是否真的从远程库删除了标签，可以登陆GitHub查看。
+<br><br>
+<h1>小结</h1><ul><li>
+命令<span class="aaa">git push origin &lt;tagname&gt</span>可以推送一个本地标签；</li><li>
+命令<span class="aaa">git push origin --tags</span>可以推送全部未推送过的本地标签；</li><li>
+命令<span class="aaa">git tag -d &lt;tagname&gt</span>可以删除一个本地标签；</li><li>
+命令<span class="aaa">git push origin :refs/tags/&lt;tagname&gt</span>可以删除一个远程标签。</li>
+</ul>
+</body>
+</html>

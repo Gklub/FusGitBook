@@ -15,11 +15,11 @@
 现在，你终于接到了一个新任务：开发代号为Vulcan的新功能，该功能计划用于下一代星际飞船。
 <br><br>
 于是准备开发：
-<br><br>
+<br><br><div class="bbb">
 $ git checkout -b feature-vulcan
-Switched to a new branch 'feature-vulcan'<br><br>
+Switched to a new branch 'feature-vulcan'<br></div><br>
 5分钟后，开发完毕：
-<br><br>
+<br><br><div class="bbb">
 
 $ git add vulcan.py
 $ git status
@@ -32,10 +32,10 @@ $ git status
     $ git commit -m "add feature vulcan"
     [feature-vulcan 756d4af] add feature vulcan
     1 file changed, 2 insertions(+)
-    create mode 100644 vulcan.py<br><br>
-    切回dev，准备合并：
-<br><br>
-    $ git checkout dev<br><br>
+    create mode 100644 vulcan.py<br></div><br>
+    切回<span class="aaa">dev</span>，准备合并：
+<br><br><div class="bbb">
+    $ git checkout dev<br></div><br>
     一切顺利的话，feature分支和bug分支是类似的，合并，然后删除。
 <br><br>
     但是，
@@ -43,23 +43,23 @@ $ git status
     就在此时，接到上级命令，因经费不足，新功能必须取消！
 <br><br>
     虽然白干了，但是这个分支还是必须就地销毁：
-<br><br>
+<br><br><div class="bbb">
     $ git branch -d feature-vulcan
     error: The branch 'feature-vulcan' is not fully merged.
-    If you are sure you want to delete it, run 'git branch -D feature-vulcan'.<br><br>
-    销毁失败。Git友情提醒，feature-vulcan分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用命令git branch -D feature-vulcan。
+    If you are sure you want to delete it, run 'git branch -D feature-vulcan'.<br></div><br>
+    销毁失败。Git友情提醒，<span class="aaa">feature-vulcan</span>分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用命令<span class="aaa">git branch -D feature-vulcan</span>。
 <br><br>
     现在我们强行删除：
-<br><br>
+<br><br><div class="bbb">
     $ git branch -D feature-vulcan
-    Deleted branch feature-vulcan (was 756d4af).<br><br>
+    Deleted branch feature-vulcan (was 756d4af).<br></div><br>
     终于删除成功！
 <br><br>
 
     <h1>小结</h1><br><br>
     开发一个新feature，最好新建一个分支；
 <br><br>
-    如果要丢弃一个没有被合并过的分支，可以通过git branch -D &lt;name&gt强行删除。
+    如果要丢弃一个没有被合并过的分支，可以通过<span class="aaa">git branch -D &lt;name&gt</span>强行删除。
 
 
 

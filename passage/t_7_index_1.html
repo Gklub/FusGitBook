@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/tt.css" type="text/css">
+</head>
+<body>
+<h1>创建标签</h1>
+<br><br>
+在Git中打标签非常简单，首先，切换到需要打标签的分支上：
+<br><br><div class="bbb">
+$ git branch<br>
+* dev<br>
+master<br>
+$ git checkout master<br>
+Switched to branch 'master'<br></div><br>
+然后，敲命令<span class="aaa">git tag &lt;name&gt</span>就可以打一个新标签：
+<br><br><div class="bbb">
+$ git tag v1.0<br></div><br>
+可以用命令<span class="aaa">git tag</span>查看所有标签：
+<br><br><div class="bbb">
+$ git tag
+v1.0<br></div><br>
+默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？
+<br><br>
+方法是找到历史提交的commit id，然后打上就可以了：
+<br><br><div class="bbb">
+$ git log --pretty=oneline --abbrev-commit<br>
+6a5819e merged bug fix 101<br>
+cc17032 fix bug 101<br>
+7825a50 merge with no-ff<br>
+6224937 add merge<br>
+59bc1cb conflict fixed<br>
+400b400 & simple<br>
+75a857c AND simple<br>
+fec145a branch test<br>
+d17efd8 remove test.txt<br>
+...<br></div><br>
+比方说要对“add merge”这次提交打标签，它对应的commit id是<span class="aaa">6224937</span>，敲入命令：
+<br><br><div class="bbb">
+$ git tag v0.9 6224937<br></div><br>
+再用命令g<span class="aaa">it tag</span>查看标签：
+<br><br><div class="bbb">
+$ git tag<br>
+v0.9<br>
+v1.0<br></div><br>
+注意，标签不是按时间顺序列出，而是按字母排序的。可以用<span class="aaa">git show &lt;tagname&gt</span>查看标签信息：
+<br><br><div class="bbb">
+$ git show v0.9<br>
+commit 622493706ab447b6bb37e4e2a2f276a20fed2ab4<br>
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt<br>
+Date:   Thu Aug 22 11:22:08 2013 +0800<br>
+<br><br>
+    add merge
+...<br></div><br>
+可以看到，<span class="aaa">v0.9</span>确实打在“add merge”这次提交上。
+<br><br>
+还可以创建带有说明的标签，用<span class="aaa">-a</span>指定标签名，<span class="aaa">-m</span>指定说明文字：
+<br><br><div class="bbb">
+$ git tag -a v0.1 -m "version 0.1 released" 3628164<br></div><br>
+用命令<span class="aaa">git show &lt;tagname&gt</span>可以看到说明文字：
+<br><br><div class="bbb">
+$ git show v0.1<br>
+tag v0.1<br>
+Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt<br>
+Date:   Mon Aug 26 07:28:11 2013 +0800<br>
+<br><br>
+version 0.1 released<br>
+<br><br>
+commit 3628164fb26d48395383f8f31179f24e0882e1e0<br>
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt<br>
+Date:   Tue Aug 20 15:11:49 2013 +0800<br>
+<br><br>
+    append GPL
+...<br></div><br>
+还可以通过<span class="aaa">-s</span>用私钥签名一个标签：
+<br><br><div class="bbb">
+$ git tag -s v0.2 -m "signed version 0.2 released" fec145a<br></div><br>
+签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错：
+<br><br><div class="bbb">
+gpg: signing failed: secret key not available<br>
+error: gpg failed to sign the data<br>
+error: unable to sign the tag<br></div><br>
+如果报错，请参考GnuPG帮助文档配置Key。
+<br><br>
+用命令<span class="aaa">git show &lt;tagname&gt</span>可以看到PGP签名信息：
+<br><br><div class="bbb">
+$ git show v0.2<br>
+tag v0.2<br>
+Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt<br>
+Date:   Mon Aug 26 07:28:33 2013 +0800<br>
+<br><br>
+signed version 0.2 released<br>
+-----BEGIN PGP SIGNATURE-----<br>
+Version: GnuPG v1.4.12 (Darwin)<br>
+<br><br>
+iQEcBAABAgAGBQJSGpMhAAoJEPUxHyDAhBpT4QQIAKeHfR3bo...<br>
+-----END PGP SIGNATURE-----<br>
+<br><br>
+commit fec145accd63cdc9ed95a2f557ea0658a2a6537f<br>
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt<br>
+Date:   Thu Aug 22 10:37:30 2013 +0800<br>
+<br><br>
+    branch test<br>
+...<br></div><br>
+用PGP签名的标签是不可伪造的，因为可以验证PGP签名。验证签名的方法比较复杂，这里就不介绍了。
+<br><br>
+<h1>小结</h1><ul><li>
+命令<span class="aaa">git tag &lt;name&gt</span>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+</li><li>
+
+<span class="aaa">git tag -a &lt;tagname&gt -m "blablabla..."</span>可以指定标签信息；
+</li><li>
+
+<span class="aaa">git tag -s &lt;tagname&gt -m "blablabla..."</span>可以用PGP签名标签；
+</li><li>
+命令<span class="aaa">git tag</span>可以查看所有标签。
+</li>
+</ul>
+
+
+</body>
+</html>

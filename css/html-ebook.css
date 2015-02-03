@@ -89,14 +89,14 @@
     width:  24%;
     left: 34.5%;
     top: 37.5%;
-    transition-property: width ,length,top,left ;
-    transition-duration: 0.4s;
-    -moz-transition-property: width ,length,top,left;
-    -moz-transition-duration: 0.4s;
-    -webkit-transition-property: width ,length,top,left;
-    -webkit-animation-duration: 0.4s;
-    -o-transition-property: width ,length,top,left;
-    -o-transition-duration: 0.4s;
+    transition-property: width ,length,top,left,background;
+    transition-duration: 0.3s;
+    -moz-transition-property: width ,length,top,left,background;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-property: width ,length,top,left,background;
+    -webkit-animation-duration: 0.3s;
+    -o-transition-property:width ,length,top,left,background;
+    -o-transition-duration: 0.3s;
 
 }
 
@@ -116,8 +116,8 @@
 #title_1 {
     position:absolute;
 
-    left:10%;
-    top:8%;
+    left:0%;
+    top:12%;
 }
 
 
@@ -127,61 +127,61 @@
 #title_2{
     position:absolute;
 
-    left:15%;
-    top:17%;
+    left:5%;
+    top:21%;
 
 }
 /*_____________________________排版title 3______________________________*/
 #title_3{
     position:absolute;
 
-    left:10%;
-    top:26%;
+    left:0%;
+    top:30%;
 
 }
 /*_____________________________排版title 4______________________________*/
 #title_4{
     position:absolute;
 
-    left:15%;
-    top:35%;
+    left:5%;
+    top:39%;
 }
 /*_____________________________排版title 5______________________________*/
 #title_5{
     position:absolute;
 
-    left:10%;
-    top:44%;
+    left:0%;
+    top:48%;
 }
 /*_____________________________排版title 6______________________________*/
 #title_6{
     position:absolute;
 
-    left:15%;
-    top:53%;
+    left:5%;
+    top:57%;
 
 }
 /*_____________________________排版title 7______________________________*/
 #title_7{
     position:absolute;
 
-    left:10%;
-    top:62%;
+    left:0%;
+    top:66%;
 
 }
 /*_____________________________排版title 8______________________________*/
 #title_8{
     position:absolute;
 
-    left:15%;
-    top:71%;
+    left:5%;
+    top:75%;
 }
 /*_____________________________排版title 9______________________________*/
 #title_9{
     position:absolute;
 
-    left:10%;
-    top:80%;
+    left:0%;
+    top:84%;
 }
 
 
@@ -282,10 +282,9 @@ body {
 .title{
     margin: 0;
     padding: 0;
-    height:100px;
-    width:100px;
+    height:60px;
+    width:60px;
     border: 8px solid #000000 ;
-    border-radius: 50%;
     vertical-align: baseline;
     overflow: hidden;
 }

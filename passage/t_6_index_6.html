@@ -9,31 +9,31 @@
 
 <h1>多人协作</h1>
 <br><br>
-当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。
+当你从远程仓库克隆时，实际上Git自动把本地的<span class="aaa">master</span>分支和远程的<span class="aaa">master</span>分支对应起来了，并且，远程仓库的默认名称是<span class="aaa">origin</span>。
 <br><br>
-要查看远程库的信息，用git remote：
-<br><br>
+要查看远程库的信息，用<span class="aaa">git remote</span>：
+<br><br><div class="bbb">
 $ git remote<br>
-origin<br><br>
-或者，用git remote -v显示更详细的信息：
-<br><br>
+origin<br></div><br>
+或者，用<span class="aaa">git remote -v</span>显示更详细的信息：
+<br><br><div class="bbb">
 $ git remote -v<br>
 origin  git@github.com:michaelliao/learngit.git (fetch)<br>
-origin  git@github.com:michaelliao/learngit.git (push)<br><br>
-上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址。
+origin  git@github.com:michaelliao/learngit.git (push)<br></div><br>
+上面显示了可以抓取和推送的<span class="aaa">origin</span>的地址。如果没有推送权限，就看不到push的地址。
 <br><br>
 <h1>推送分支</h1><br><br>
 推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
-<br><br>
-$ git push origin master<br><br>
-如果要推送其他分支，比如dev，就改成：
-<br><br>
-$ git push origin dev<br><br>
+<br><br><div class="bbb">
+$ git push origin master<br></div><br>
+如果要推送其他分支，比如<span class="aaa">dev</span>，就改成：
+<br><br><div class="bbb">
+$ git push origin dev<br></div><br>
 但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？
 <ul><li>
-master分支是主分支，因此要时刻与远程同步；
+<span class="aaa">master</span>分支是主分支，因此要时刻与远程同步；
 </li><li>
-dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+<span class="aaa">dev</span>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
 </li><li>
 bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
 </li><li>
@@ -42,26 +42,26 @@ feature分支是否推到远程，取决于你是否和你的小伙伴合作在�
 总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！
 <br><br>
 <h1>抓取分支</h1><br><br>
-多人协作时，大家都会往master和dev分支上推送各自的修改。
+多人协作时，大家都会往<span class="aaa">master</span>和<span class="aaa">dev</span>分支上推送各自的修改。
 <br><br>
 现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：
-<br><br>
+<br><br><div class="bbb">
 $ git clone git@github.com:michaelliao/learngit.git<br>
 Cloning into 'learngit'...<br>
 remote: Counting objects: 46, done.<br>
 remote: Compressing objects: 100% (26/26), done.<br>
 remote: Total 46 (delta 16), reused 45 (delta 15)<br>
 Receiving objects: 100% (46/46), 15.69 KiB | 6 KiB/s, done.<br>
-Resolving deltas: 100% (16/16), done.<br><br>
-当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的master分支。不信可以用git branch命令看看：
-<br><br>
+Resolving deltas: 100% (16/16), done.<br></div><br>
+当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的<span class="aaa">master</span>分支。不信可以用<span class="aaa">git branch</span>命令看看：
+<br><br><div class="bbb">
 $ git branch<br>
-* master<br><br>
-现在，你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：
-<br><br>
-$ git checkout -b dev origin/dev<br><br>
-现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程：<br>
-<br><br>
+* master<br></div><br>
+现在，你的小伙伴要在<span class="aaa">dev</span>分支上开发，就必须创建远程<span class="aaa">origin</span>的<span class="aaa">dev</span>分支到本地，于是他用这个命令创建本地<span class="aaa">dev</span>分支：
+<br><br><div class="bbb">
+$ git checkout -b dev origin/dev<br></div><br>
+现在，他就可以在<span class="aaa">dev</span>上继续修改，然后，时不时地把<span class="aaa">dev</span>分支<span class="aaa">push</span>到远程：<br>
+<br><br><div class="bbb">
 $ git commit -m "add /usr/bin/env"<br>
 [dev 291bea8] add /usr/bin/env<br>
 1 file changed, 1 insertion(+)<br>
@@ -73,9 +73,9 @@ Writing objects: 100% (3/3), 349 bytes, done.<br>
 Total 3 (delta 0), reused 0 (delta 0)<br>
 To git@github.com:michaelliao/learngit.git<br>
 fc38031..291bea8  dev -> dev<br>
-<br><br>
-你的小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：
-<br><br>
+<br></div><br>
+你的小伙伴已经向<span class="aaa">origin/dev</span>分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：
+<br><br><div class="bbb">
 $ git add hello.py<br>
 $ git commit -m "add coding: utf-8"<br>
 [dev bd6ae48] add coding: utf-8<br>
@@ -87,9 +87,9 @@ error: failed to push some refs to 'git@github.com:michaelliao/learngit.git'<br>
 hint: Updates were rejected because the tip of your current branch is behind<br>
 hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')<br>
 hint: before pushing again.<br>
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.<br><br>
-推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：
-<br><br>
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.<br></div><br>
+推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用<span class="aaa">git pull</span>把最新的提交从<span class="aaa">origin/dev</span>抓下来，然后，在本地合并，解决冲突，再推送：
+<br><br><div class="bbb">
 $ git pull<br>
 remote: Counting objects: 5, done.<br>
 remote: Compressing objects: 100% (2/2), done.<br>
@@ -105,19 +105,19 @@ git pull &lt;remote&gt &lt;branch&gt<br><br>
 
     If you wish to set tracking information for this branch you can do so with:<br><br>
 
-    git branch --set-upstream dev origin/&lt;branch&gt<br><br>
-    git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：
-<br><br>
+    git branch --set-upstream dev origin/&lt;branch&gt<br></div><br>
+    <span class="aaa">git pull</span>也失败了，原因是没有指定本地<span class="aaa">dev</span>分支与远程<span class="aaa">origin/dev</span>分支的链接，根据提示，设置<span class="aaa">dev</span>和<span class="aaa">origin/dev</span>的链接：
+<br><br><div class="bbb">
     $ git branch --set-upstream dev origin/dev<br>
-    Branch dev set up to track remote branch dev from origin.<br><br>
+    Branch dev set up to track remote branch dev from origin.<br></div><br>
     再pull：
-<br><br>
+<br><br><div class="bbb">
     $ git pull<br>
     Auto-merging hello.py<br>
     CONFLICT (content): Merge conflict in hello.py<br>
-    Automatic merge failed; fix conflicts and then commit the result.<br><br>
-    这回git pull成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：
-<br><br>
+    Automatic merge failed; fix conflicts and then commit the result.<br></div><br>
+    这回<span class="aaa">git pull</span>成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：
+<br><br><div class="bbb">
     $ git commit -m "merge & fix hello.py"<br>
     [dev adca45d] merge & fix hello.py<br>
     $ git push origin dev<br>
@@ -128,33 +128,33 @@ git pull &lt;remote&gt &lt;branch&gt<br><br>
     Total 6 (delta 0), reused 0 (delta 0)<br>
     To git@github.com:michaelliao/learngit.git<br>
     291bea8..adca45d  dev -> dev<br>
-<br><br>
+<br></div><br>
     因此，多人协作的工作模式通常是这样：
 <ul><li type="1">
-    首先，可以试图用git push origin branch-name推送自己的修改；
+    首先，可以试图用<span class="aaa">git push origin branch-name</span>推送自己的修改；
 </li><li type="1">
-    如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+    如果推送失败，则因为远程分支比你的本地更新，需要先用<span class="aaa">git pull</span>试图合并；
 </li><li type="1">
     如果合并有冲突，则解决冲突，并在本地提交；
 </li><li type="1">
-    没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！</li>
+    没有冲突或者解决掉冲突后，再用<span class="aaa">git push origin branch-name</span>推送就能成功！</li>
 </ul>
-    如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+    如果<span class="aaa">git pull</span>提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令<span class="aaa">git branch --set-upstream branch-name origin/branch-name</span>。
 <br><br>
     这就是多人协作的工作模式，一旦熟悉了，就非常简单。
 <br><br>
     <h1>小结</h1><br><br><ul><li>
-    查看远程库信息，使用git remote -v；
+    查看远程库信息，使用<span class="aaa">git remote -v</span>；
 </li><li>
     本地新建的分支如果不推送到远程，对其他人就是不可见的；
 </li><li>
-    从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+    从本地推送分支，使用<span class="aaa">git push origin branch-name</span>，如果推送失败，先用<span class="aaa">git pull</span>抓取远程的新提交；
 </li><li>
-    在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+    在本地创建和远程分支对应的分支，使用<span class="aaa">git checkout -b branch-name origin/branch-name</span>，本地和远程分支的名称最好一致；
 </li><li>
-    建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+    建立本地分支和远程分支的关联，使用<span class="aaa">git branch --set-upstream branch-name origin/branch-name</span>；
 </li><li>
-    从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</li></ul>
+    从远程抓取分支，使用<span class="aaa">git pull</span>，如果有冲突，要先处理冲突。</li></ul>
 
 
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/tt.css" type="text/css">
+</head>
+<body>
+<h1>配置别名</h1>
+<br><br>
+有没有经常敲错命令？比如<span class="aaa">git status</span>？<span class="aaa">status</span>这个单词真心不好记。
+<br><br>
+如果敲<span class="aaa">git st</span>就表示<span class="aaa">git status</span>那就简单多了，当然这种偷懒的办法我们是极力赞成的。
+<br><br>
+我们只需要敲一行命令，告诉Git，以后<span class="aaa">st</span>就表示<span class="aaa">status</span>：
+<br><br><div class="bbb">
+$ git config --global alias.st status<br></div><br>
+好了，现在敲<span class="aaa">git st</span>看看效果。
+<br><br>
+当然还有别的命令可以简写，很多人都用<span class="aaa">co</span>表示<span class="aaa">checkout</span>，<span class="aaa">ci</span>表示<span class="aaa">commit</span>，<span class="aaa">br</span>表示<span class="aaa">branch</span>：
+<br><br><div class="bbb">
+$ git config --global alias.co checkout<br>
+$ git config --global alias.ci commit<br>
+$ git config --global alias.br branch<br></div><br>
+以后提交就可以简写成：
+<br><br><div class="bbb">
+$ git ci -m "bala bala bala..."<br></div><br>
+<span class="aaa">--global</span>参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。
+<br><br>
+在撤销修改一节中，我们知道，命令<span class="aaa">git reset HEAD file</span>可以把暂存区的修改撤销掉（unstage），重新放回工作区。既然是一个unstage操作，就可以配置一个<span class="aaa">unstage</span>别名：
+<br><br><div class="bbb">
+$ git config --global alias.unstage 'reset HEAD'<br></div><br>
+当你敲入命令：
+<br><br><div class="bbb">
+$ git unstage test.py<br></div><br>
+实际上Git执行的是：
+<br><br><div class="bbb">
+$ git reset HEAD test.py<br></div><br>
+配置一个<span class="aaa">git last</span>，让其显示最后一次提交信息：
+<br><br><div class="bbb">
+$ git config --global alias.last 'log -1'<br></div><br>
+这样，用<span class="aaa">git last</span>就能显示最近一次的提交：
+<br><br><div class="bbb">
+$ git last<br>
+commit adca45d317e6d8a4b23f9811c3d7b7f0f180bfe2<br>
+Merge: bd6ae48 291bea8<br>
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt<br>
+Date:   Thu Aug 22 22:49:22 2013 +0800<br>
+    <br>
+merge & fix hello.py<br></div><br>
+甚至还有人丧心病狂地把<span class="aaa">lg</span>配置成了：
+<br><br><div class="bbb">
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt%Creset' --abbrev-commit"<br></div><br>
+来看看<span class="aaa">git lg</span>的效果：
+<br><br>
+<img src="../img/9_2_1.png" alt="../img/9_2_1.png">
+<br><br>
+为什么不早点告诉我？别激动，咱不是为了多记几个英文单词嘛！
+<br><br>
+<h1>配置文件</h1>
+配置Git的时候，加上<span class="aaa">--global</span>是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。
+<br><br>
+配置文件放哪了？每个仓库的Git配置文件都放在<span class="aaa">.git/config</span>文件中：
+<br><br><div class="bbb">
+$ cat .git/config<br>
+[core]<br>
+repositoryformatversion = 0<br>
+filemode = true<br>
+bare = false<br>
+logallrefupdates = true<br>
+ignorecase = true<br>
+precomposeunicode = true<br>
+[remote "origin"]<br>
+url = git@github.com:michaelliao/learngit.git<br>
+fetch = +refs/heads/*:refs/remotes/origin/*<br>
+[branch "master"]<br>
+remote = origin<br>
+merge = refs/heads/master<br>
+[alias]<br>
+last = log -1<br></div><br>
+别名就在<span class="aaa">[alias]</span>后面，要删除别名，直接把对应的行删掉即可。
+<br><br>
+而当前用户的Git配置文件放在用户主目录下的一个隐藏文件<span class="aaa">.gitconfig</span>中：
+<br><br><div class="bbb">
+$ cat .gitconfig<br>
+[alias]<br>
+co = checkout<br>
+ci = commit<br>
+br = branch<br>
+st = status<br>
+[user]<br>
+name = Your Name<br>
+email = your@email.com<br></div><br>
+配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。
+<br><br>
+<h1>小结</h1><br><br>
+给Git配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。
+</body>
+</html>
